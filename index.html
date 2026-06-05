@@ -2154,6 +2154,34 @@ function updateProfile() {
   }
 }
 
+
+// ============================================================
+// INICIALIZACIÓN — verificar sesión al cargar la app
+// ============================================================
+(async function initApp() {
+  try {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session && session.user) {
+      showLoading('Cargando tu progreso...');
+      const s = await loadStateFromDB(session.user.id, session.user.email);
+      hideLoading();
+      if (s) {
+        state = s;
+        if (!state.onboardingDone) {
+          showOnboarding();
+        } else {
+          showScreen('home');
+        }
+        return;
+      }
+    }
+  } catch(e) {
+    console.error('Init error:', e);
+  }
+  // No session — show splash
+  showScreen('splash');
+})();
+
 </script>
 </body>
 </html>
