@@ -2047,10 +2047,10 @@ async function completeDay() {
   updateHome();
   showXPToast('+30 XP — ¡Día ' + day + ' completado! 🎉');
 
-  // Check trivia
-  const triviaKeys = Object.keys(TRIVIAS).map(Number);
-  if (triviaKeys.includes(day)) {
-    setTimeout(() => checkTrivia(day), 1500);
+  // Check trivia - fires at end of each phase (days 7, 14, 21, 28)
+  const phaseEndDays = { 7: 1, 14: 2, 21: 3, 28: 4 };
+  if (phaseEndDays[day] !== undefined && TRIVIAS[phaseEndDays[day]]) {
+    setTimeout(() => checkTrivia(phaseEndDays[day]), 1500);
   }
 }
 
