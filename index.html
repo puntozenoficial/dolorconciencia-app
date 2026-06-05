@@ -839,26 +839,34 @@ async function loadStateFromDB(userId, email) {
 }
 
 async function saveStateToDB() {
-  const { data: { user } } = await sb.auth.getUser();
-  if (!user) return;
-  const { error } = await sb.from('user_progress').upsert({
-    user_id: user.id,
-    name: state.name,
-    start_date: state.startDate,
-    current_day: state.currentDay,
-    completed_days: state.completedDays,
-    streak: state.streak,
-    last_completed: state.lastCompleted,
-    checkins:  state.checkins,
-    pain_log:         state.painLog        || [],
-    phases_completed: state.phasesCompleted || [],
-    last_game_day:    state.lastGameDay    || null,
-    xp:               state.xp            || 0,
-    last_habit_day:   state.lastHabitDay  || null,
-    onboarding_done:  state.onboardingDone || false,
-    profile:          state.profile        || {}
-  }, { onConflict: 'user_id' });
-  if (error) console.error('Error guardando estado:', error.message);
+  try {
+    const { data: authData } = await sb.auth.getUser();
+    const user = authData && authData.user;
+    if (!user) { console.warn('saveStateToDB: no user session'); return; }
+    const { error } = await sb.from('user_progress').upsert({
+      user_id: user.id,
+      name: state.name,
+      start_date: state.startDate,
+      current_day: state.currentDay,
+      completed_days: state.completedDays,
+      streak: state.streak,
+      last_completed: state.lastCompleted,
+      checkins:  state.checkins  || [],
+      pain_log:         state.painLog        || [],
+      phases_completed: state.phasesCompleted || [],
+      last_game_day:    state.lastGameDay    || null,
+      xp:               state.xp            || 0,
+      last_habit_day:   state.lastHabitDay  || null,
+      onboarding_done:  state.onboardingDone || false,
+      profile:          state.profile        || {}
+    }, { onConflict: 'user_id' });
+    if (error) {
+      console.error('Error guardando estado:', error.message);
+      showXPToast('⚠️ Error al guardar: ' + error.message);
+    }
+  } catch(e) {
+    console.error('saveStateToDB exception:', e);
+  }
 }
 
 // ============================================================
@@ -2035,7 +2043,11 @@ async function completeDay() {
   // Advance day
   if (state.currentDay < 28) state.currentDay++;
 
-  await saveStateToDB();
+  try {
+    await saveStateToDB();
+  } catch(e) {
+    console.error('completeDay save error:', e);
+  }
 
   // Update UI
   document.getElementById('completeBtn').style.display = 'none';
