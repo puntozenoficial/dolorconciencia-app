@@ -15,7 +15,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#1a1a1a;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow:hidden;}
+body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#1a1a1a;display:flex;justify-content:center;align-items:center;min-height:100vh;overflow-y:auto;}
 .phone{width:100%;max-width:390px;height:100vh;max-height:844px;background:#FAF8F4;overflow:hidden;position:relative;}
 @media(min-width:500px){.phone{border-radius:44px;height:844px;box-shadow:0 30px 80px rgba(0,0,0,0.6);}}
 .screen{display:none;width:100%;height:100%;flex-direction:column;position:absolute;top:0;left:0;overflow:hidden;}
@@ -50,7 +50,7 @@ input:focus{border-color:#4A7A65;}
 </div>
 
 <!-- SPLASH -->
-<div class="screen on" id="splash" style="background:linear-gradient(160deg,#0a0a0a 0%,#111a14 60%,#0d2218 100%);justify-content:center;align-items:center;overflow:hidden;">
+<div class="screen on" id="splash" style="background:linear-gradient(160deg,#0a0a0a 0%,#111a14 60%,#0d2218 100%);justify-content:space-between;align-items:center;padding:40px 0 40px;overflow-y:auto;">
   <!-- Círculos decorativos de fondo -->
   <div style="position:absolute;width:320px;height:320px;border-radius:50%;border:1px solid rgba(74,175,125,0.08);top:50%;left:50%;transform:translate(-50%,-58%);"></div>
   <div style="position:absolute;width:440px;height:440px;border-radius:50%;border:1px solid rgba(74,175,125,0.04);top:50%;left:50%;transform:translate(-50%,-58%);"></div>
@@ -2039,7 +2039,20 @@ async function completeDay() {
 
   // Update UI
   document.getElementById('completeBtn').style.display = 'none';
-  document.getElementById('completedMsg').style.display = 'block';
+  const msg = document.getElementById('completedMsg');
+  msg.style.display = 'block';
+  // Add next-day button
+  const nextDay = state.currentDay;
+  const existingBtn = document.getElementById('nextDayBtn');
+  if (!existingBtn) {
+    const btn = document.createElement('button');
+    btn.id = 'nextDayBtn';
+    btn.className = 'btn btn-green';
+    btn.style.cssText = 'margin-top:12px;background:#4A7A65;color:#FAF8F4;';
+    btn.textContent = nextDay <= 28 ? 'Ir al Día ' + nextDay + ' →' : '¡Programa completado! 🎉';
+    btn.onclick = () => { document.getElementById('nextDayBtn').remove(); showScreen('home'); };
+    msg.appendChild(btn);
+  }
   if (day === 28) {
     const pdfBtn = document.getElementById('day28PDF');
     if (pdfBtn) pdfBtn.style.display = 'block';
