@@ -1922,7 +1922,6 @@ let timerTotal = 0;
 let timerLeft = 0;
 
 function parseDuration(meta) {
-  // "5-6 min · nivel suave" → returns seconds (uses first number)
   const m = meta.match(/(\d+)/);
   return m ? parseInt(m[1]) * 60 : 180;
 }
@@ -1932,33 +1931,49 @@ function initTimer(seconds, name) {
   timerRunning = false;
   timerTotal = seconds;
   timerLeft = seconds;
-  const overlay = document.getElementById('dimOverlay');
-  const nameEl = document.getElementById('dimExName');
-  const btn = overlay ? overlay.querySelector('button') : null;
-  if (nameEl) nameEl.textContent = name;
-  if (btn) btn.textContent = '▶ Iniciar';
+  // Update inline timer display
   updateTimerDisplay();
-  if (overlay) overlay.style.display = 'flex';
+  // Reset timer button
+  const btn = document.getElementById('timerBtn');
+  if (btn) btn.textContent = '▶ Iniciar';
+  const done = document.getElementById('timerDone');
+  if (done) done.style.display = 'none';
+  // Hide dim overlay (don't show automatically)
+  const overlay = document.getElementById('dimOverlay');
+  if (overlay) overlay.style.display = 'none';
 }
 
 function updateTimerDisplay() {
   const mins = Math.floor(timerLeft / 60);
   const secs = timerLeft % 60;
-  const display = document.getElementById('dimTimerDisplay');
-  if (display) display.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
-  const circle = document.getElementById('dimCircle');
+  const timeStr = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
+  // Update inline display
+  const display = document.getElementById('timerDisplay');
+  if (display) display.textContent = timeStr;
+  // Update inline circle (283 = 2*PI*45)
+  const circle = document.getElementById('timerCircle');
   if (circle && timerTotal > 0) {
     const pct = timerLeft / timerTotal;
-    circle.style.strokeDashoffset = 490 * (1 - pct);
+    circle.style.strokeDashoffset = 283 * (1 - pct);
+  }
+  // Also update dim overlay if visible
+  const dimDisplay = document.getElementById('dimTimerDisplay');
+  if (dimDisplay) dimDisplay.textContent = timeStr;
+  const dimCircle = document.getElementById('dimCircle');
+  if (dimCircle && timerTotal > 0) {
+    const pct = timerLeft / timerTotal;
+    dimCircle.style.strokeDashoffset = 490 * (1 - pct);
   }
 }
 
 function toggleTimer() {
-  const btn = document.querySelector('#dimOverlay button');
+  const btn = document.getElementById('timerBtn');
+  const dimBtn = document.querySelector('#dimOverlay button');
   if (timerRunning) {
     clearInterval(timerInterval);
     timerRunning = false;
     if (btn) btn.textContent = '▶ Continuar';
+    if (dimBtn) dimBtn.textContent = '▶ Continuar';
   } else {
     if (timerLeft <= 0) {
       timerLeft = timerTotal;
@@ -1966,6 +1981,7 @@ function toggleTimer() {
     }
     timerRunning = true;
     if (btn) btn.textContent = '⏸ Pausar';
+    if (dimBtn) dimBtn.textContent = '⏸ Pausar';
     timerInterval = setInterval(() => {
       timerLeft--;
       updateTimerDisplay();
@@ -1973,6 +1989,9 @@ function toggleTimer() {
         clearInterval(timerInterval);
         timerRunning = false;
         if (btn) btn.textContent = '▶ Reiniciar';
+        if (dimBtn) dimBtn.textContent = '▶ Reiniciar';
+        const done = document.getElementById('timerDone');
+        if (done) done.style.display = 'block';
         try { navigator.vibrate([200, 100, 200]); } catch(e) {}
       }
     }, 1000);
