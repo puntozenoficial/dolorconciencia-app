@@ -1721,7 +1721,7 @@ function updateHome() {
   document.getElementById('daySubtitle').textContent = d.sub;
   const completed = state.completedDays.includes(state.currentDay);
   document.getElementById('dayProgress').style.width = completed ? '100%' : '0%';
-  const tip = TIPS[Math.floor(Math.random() * TIPS.length)];
+  const tip = TIPS[(d.d - 1) % TIPS.length];
   document.getElementById('scienceTip').textContent = tip;
   const cis = document.querySelectorAll('.ci');
   const today = new Date().toDateString();
