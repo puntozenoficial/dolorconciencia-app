@@ -819,12 +819,14 @@ async function loadStateFromDB(userId, email) {
   const { data, error } = await sb.from('user_progress')
     .select('*').eq('user_id', userId).single();
   if (error || !data) return null;
+  const completedDays = (data.completed_days || []).map(Number).filter(n => !isNaN(n));
+  const derivedCurrentDay = Math.min(completedDays.length + 1, 28);
   return {
     name: data.name,
     email: email,
     startDate: data.start_date,
-    currentDay: (data.completed_days || []).map(Number).length + 1,
-    completedDays: (data.completed_days || []).map(Number),
+    currentDay: derivedCurrentDay,
+    completedDays: completedDays,
     streak: data.streak || 0,
     lastCompleted: data.last_completed,
     checkins: data.checkins || [],
@@ -847,7 +849,7 @@ async function saveStateToDB() {
       user_id: user.id,
       name: state.name,
       start_date: state.startDate,
-      current_day: state.completedDays.length + 1,
+      current_day: state.currentDay,
       completed_days: state.completedDays,
       streak: state.streak,
       last_completed: state.lastCompleted,
@@ -2018,6 +2020,7 @@ function toggleTimer() {
 async function completeDay() {
   const day = state.currentDay;
   if (!state.completedDays) state.completedDays = [];
+  state.completedDays = state.completedDays.map(Number); // ensure numbers
   if (state.completedDays.includes(day)) return;
 
   state.completedDays.push(day);
