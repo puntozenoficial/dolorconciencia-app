@@ -881,6 +881,22 @@ async function saveStateToDB() {
 }
 
 // ============================================================
+// PORTON DE ACCESO (pre-lanzamiento)
+// ============================================================
+// Mientras no esté activa la validación de compra (Hotmart), el registro
+// está restringido a una lista de invitados (la creadora + testers de confianza).
+// Esto evita que cualquiera que encuentre el link cree una cuenta gratis
+// antes del lanzamiento oficial con códigos de acceso.
+// TODO: reemplazar/complementar esto con validación de código de compra (Hotmart).
+const WHITELIST_EMAILS = [
+  'mjoseurq@gmail.com'
+];
+
+function emailAutorizado(email) {
+  return WHITELIST_EMAILS.includes((email || '').trim().toLowerCase());
+}
+
+// ============================================================
 // AUTH
 // ============================================================
 async function doForgotPassword() {
@@ -936,6 +952,12 @@ async function doRegister() {
   const pass  = document.getElementById('regPass').value;
   if (!name || !email || !pass) { showError('registerError', 'Completá todos los campos.'); return; }
   if (pass.length < 6) { showError('registerError', 'La contraseña debe tener al menos 6 caracteres.'); return; }
+
+  if (!emailAutorizado(email)) {
+    showError('registerError', 'Por ahora el registro está disponible solo para quienes ya adquirieron el programa. Si compraste DolorConCiencia, escribinos para activar tu acceso.');
+    return;
+  }
+
   showError('registerError', '');
   setBtnLoading('registerBtn', true);
 
