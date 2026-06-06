@@ -909,7 +909,11 @@ async function doLogin() {
 
   if (s) {
     state = s;
-    showScreen('home');
+    if (!state.onboardingDone) {
+      showOnboarding();
+    } else {
+      showScreen('home');
+    }
   } else {
     // Tiene cuenta de auth pero no tiene perfil aún (registro incompleto)
     showError('loginError', 'No se encontró tu perfil. Por favor registráte.');
@@ -2082,7 +2086,7 @@ async function completeDay() {
   // Check trivia - fires at end of each phase (days 7, 14, 21, 28)
   const phaseEndDays = { 7: 1, 14: 2, 21: 3, 28: 4 };
   if (phaseEndDays[day] !== undefined && TRIVIAS[phaseEndDays[day]]) {
-    setTimeout(() => checkTrivia(phaseEndDays[day]), 1500);
+    setTimeout(() => showTrivia(phaseEndDays[day]), 1500);
   }
 }
 
