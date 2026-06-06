@@ -1732,10 +1732,13 @@ function updateHome() {
   }
 }
 
-function openDay() {
-  // Show Mito o Evidencia game on certain days
-  if (shouldShowMitoEvid()) { showMitoEvid(); return; }
-  const d = DAYS[Math.min(state.currentDay - 1, 27)];
+function openDay(dayIndex) {
+  const isToday = (dayIndex === undefined || dayIndex === null);
+  // Show Mito o Evidencia game on certain days (solo al abrir el día de hoy)
+  if (isToday && shouldShowMitoEvid()) { showMitoEvid(); return; }
+  const idx = isToday ? Math.min(state.currentDay - 1, 27) : dayIndex;
+  const d = DAYS[idx];
+  const dayNum = d.d;
   document.getElementById('dayScreenPill').textContent = 'Día ' + d.d + ' · ' + d.fase;
   document.getElementById('dayScreenTitle').textContent = d.titulo;
   document.getElementById('dayScreenSub').textContent = d.sub + ' · ' + d.dur;
@@ -1751,8 +1754,9 @@ function openDay() {
     div.innerHTML = `<div style="width:44px;height:44px;border-radius:12px;background:#E8F4EE;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">${ex.e}</div><div style="flex:1;"><p style="font-size:13px;font-weight:500;color:#2A2825;margin:0 0 2px;">${ex.n}</p><p style="font-size:11px;color:#888;margin:0;">${ex.meta}</p></div><svg width="18" height="18" stroke="#4A7A65" fill="none" stroke-width="2" viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg>`;
     el.appendChild(div);
   });
-  const completed = state.completedDays.includes(state.currentDay);
-  document.getElementById('completeBtn').style.display = completed ? 'none' : 'block';
+  const completed = state.completedDays.includes(dayNum);
+  // El botón de completar solo tiene sentido para el día actual
+  document.getElementById('completeBtn').style.display = (!completed && dayNum === state.currentDay) ? 'block' : 'none';
   document.getElementById('completedMsg').style.display = completed ? 'block' : 'none';
   showScreen('dayscreen');
 }
