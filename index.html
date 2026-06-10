@@ -887,19 +887,6 @@ async function saveStateToDB() {
 
 // ============================================================
 // PORTON DE ACCESO (pre-lanzamiento)
-// ============================================================
-// Mientras no esté activa la validación de compra (Hotmart), el registro
-// está restringido a una lista de invitados (la creadora + testers de confianza).
-// Esto evita que cualquiera que encuentre el link cree una cuenta gratis
-// antes del lanzamiento oficial con códigos de acceso.
-// TODO: reemplazar/complementar esto con validación de código de compra (Hotmart).
-const WHITELIST_EMAILS = [
-  'gsanmartin857@gmail.com', 'romapons700@gmail.com', 'mjoseurq@gmail.com', 'feliurquiza57@gmail.com', 'arraygadavickyy@gmail.com', 'yaniurquiza82@gmail.com', 'pedroestebanardiles@gmail.com'
-];
-
-function emailAutorizado(email) {
-  return WHITELIST_EMAILS.includes((email || '').trim().toLowerCase());
-}
 
 // ============================================================
 // AUTH
