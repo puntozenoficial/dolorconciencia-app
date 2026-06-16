@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const token = req.headers['x-hotmart-hottok'];
-  if (token !== 'SmRaPuiNUAjNnmwvZu0HxYK6Y7NZNsced95266-e555-43a6-b521-e7e18c071184') {
+  if (token !== process.env.HOTMART_HOTTOK) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
   }
 
   const buyerEmail = event?.data?.buyer?.email;
-  const buyerName  = event?.data?.buyer?.name || 'Cliente';
+  const buyerName = event?.data?.buyer?.name || 'Cliente';
 
   if (!buyerEmail) return res.status(400).json({ error: 'No buyer email' });
 
@@ -25,8 +25,8 @@ export default async function handler(req, res) {
   }
 
   // Save to Supabase
-  const SUPABASE_URL = 'https://zqxfpvafxrczvpvvhdwl.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpxeGZwdmFmeHJjenZwdnZoZHdsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA2Mjg5ODUsImV4cCI6MjA5NjIwNDk4NX0.xwzwy5rCiMs0FNirnywJl1XXuYYrGhPwYuAHOGMncnk';
+  const SUPABASE_URL = process.env.SUPABASE_URL;
+  const SUPABASE_KEY = process.env.SUPABASE_ANON_KEY;
 
   let code;
   for (let i = 0; i < 5; i++) {
@@ -50,7 +50,7 @@ export default async function handler(req, res) {
   await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
-      'Authorization': 'Bearer re_D18ZPba8_CStY7YDXxsw7rG77yKxrz6kA',
+      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
