@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Mapa del Dolor | DolorConCiencia</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+background: #f4faf6;
+color: #1a1a1a;
+min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 100%);
+padding: 24px 20px 20px;
+text-align: center;
+color: white;
+}
+.header-brand { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.8; margin-bottom: 8px; }
+.header h1 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 8px; }
+.header h1 span { color: #a8e6c3; }
+.header p { font-size: 14px; opacity: 0.85; max-width: 340px; margin: 0 auto; line-height: 1.5; }
+.header-badge {
+display: inline-block;
+background: rgba(255,255,255,0.15);
+border: 1px solid rgba(255,255,255,0.3);
+border-radius: 20px;
+padding: 5px 14px;
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+/* PROGRESS */
+.progress-wrap {
+background: white;
+padding: 14px 20px;
+border-bottom: 1px solid #e0ede6;
+position: sticky;
+top: 0;
+z-index: 10;
+box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.progress-info {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 8px;
+font-size: 12px;
+color: #666;
+}
+.progress-info strong { color: #1a4a2e; font-size: 13px; }
+.progress-bar {
+height: 6px;
+background: #e0ede6;
+border-radius: 10px;
+overflow: hidden;
+}
+.progress-fill {
+height: 100%;
+background: linear-gradient(90deg, #2d7a4f, #4caf7d);
+border-radius: 10px;
+transition: width 0.4s ease;
+width: 0%;
+}
+
+/* MAIN */
+.main { max-width: 500px; margin: 0 auto; padding: 24px 16px 40px; }
+
+/* PREGUNTA */
+.pregunta-card {
+background: white;
+border-radius: 16px;
+padding: 24px 20px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+display: none;
+animation: fadeIn 0.3s ease;
+}
+.pregunta-card.active { display: block; }
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.pregunta-num {
+font-size: 11px;
+font-weight: 700;
+color: #4caf7d;
+text-transform: uppercase;
+letter-spacing: 1.5px;
+margin-bottom: 10px;
+}
+.pregunta-texto {
+font-size: 18px;
+font-weight: 700;
+color: #1a4a2e;
+line-height: 1.35;
+margin-bottom: 20px;
+}
+
+.opciones { display: flex; flex-direction: column; gap: 10px; }
+
+.opcion-btn {
+display: flex;
+align-items: center;
+gap: 14px;
+padding: 14px 16px;
+border: 2px solid #e0ede6;
+border-radius: 12px;
+background: white;
+cursor: pointer;
+transition: all 0.2s ease;
+text-align: left;
+width: 100%;
+}
+.opcion-btn:hover { border-color: #4caf7d; background: #f4faf6; transform: translateY(-1px); }
+.opcion-btn.selected { border-color: #2d7a4f; background: #edf7f1; }
+
+.opcion-letra {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+background: #e0ede6;
+color: #2d7a4f;
+font-weight: 800;
+font-size: 13px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+transition: all 0.2s;
+}
+.opcion-btn.selected .opcion-letra { background: #2d7a4f; color: white; }
+.opcion-texto { font-size: 14px; color: #333; line-height: 1.4; }
+
+/* NAVEGACION */
+.nav-btns {
+display: flex;
+gap: 10px;
+margin-top: 20px;
+}
+.btn-siguiente {
+flex: 1;
+background: linear-gradient(135deg, #1a4a2e, #2d7a4f);
+color: white;
+border: none;
+border-radius: 12px;
+padding: 16px;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.2s;
+opacity: 0.4;
+pointer-events: none;
+}
+.btn-siguiente.enabled { opacity: 1; pointer-events: auto; }
+.btn-siguiente.enabled:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,122,79,0.35); }
+
+.btn-anterior {
+background: white;
+color: #2d7a4f;
+border: 2px solid #c3e6d4;
+border-radius: 12px;
+padding: 16px 18px;
+font-size: 15px;
+font-weight: 700;
+cursor: pointer;
+transition: all 0.2s;
+}
+.btn-anterior:hover { background: #edf7f1; }
+
+/* RESULTADO */
+#resultado { display: none; animation: fadeIn 0.4s ease; }
+
+.resultado-header {
+text-align: center;
+margin-bottom: 24px;
+}
+.resultado-emoji { font-size: 56px; margin-bottom: 12px; }
+.resultado-tag {
+display: inline-block;
+padding: 6px 18px;
+border-radius: 20px;
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+.resultado-nombre {
+font-size: 28px;
+font-weight: 800;
+color: #1a4a2e;
+margin-bottom: 8px;
+line-height: 1.2;
+}
+.resultado-subtitulo { font-size: 14px; color: #666; }
+
+.resultado-card {
+background: white;
+border-radius: 16px;
+padding: 22px 20px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+margin-bottom: 16px;
+}
+.resultado-card h3 {
+font-size: 14px;
+font-weight: 700;
+color: #1a4a2e;
+margin-bottom: 10px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+.resultado-card p { font-size: 14px; color: #444; line-height: 1.6; }
+
+.causa-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.causa-list li {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+font-size: 14px;
+color: #333;
+line-height: 1.4;
+}
+.causa-list li::before {
+content: '✓';
+color: #4caf7d;
+font-weight: 800;
+flex-shrink: 0;
+margin-top: 1px;
+}
+
+/* CTA — APP PROTAGONISTA */
+.cta-card {
+background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 100%);
+border-radius: 16px;
+padding: 24px 20px;
+text-align: center;
+color: white;
+margin-bottom: 16px;
+}
+.cta-card .cta-eyebrow {
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: #a8e6c3;
+margin-bottom: 8px;
+}
+.cta-card h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+.cta-card p { font-size: 13px; opacity: 0.9; margin-bottom: 18px; line-height: 1.5; }
+.cta-precio-wrap { margin-bottom: 16px; }
+.cta-precio-antes { font-size: 13px; opacity: 0.7; text-decoration: line-through; margin-bottom: 2px; }
+.cta-precio-ahora { font-size: 32px; font-weight: 800; color: #a8e6c3; }
+.cta-precio-ahora span { font-size: 16px; }
+.btn-comprar {
+display: block;
+width: 100%;
+background: white;
+color: #1a4a2e;
+border: none;
+border-radius: 12px;
+padding: 16px;
+font-size: 16px;
+font-weight: 800;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.2s;
+margin-bottom: 12px;
+}
+.btn-comprar:hover { background: #a8e6c3; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+.cta-bonus {
+background: rgba(255,255,255,0.12);
+border-radius: 10px;
+padding: 10px 14px;
+font-size: 12px;
+line-height: 1.5;
+}
+.cta-bonus strong { font-size: 13px; }
+
+.garantia {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+font-size: 12px;
+color: #666;
+margin-top: 8px;
+margin-bottom: 16px;
+}
+
+/* COMBO UPSELL */
+.combo-card {
+background: white;
+border: 2px dashed #c3e6d4;
+border-radius: 14px;
+padding: 16px 18px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+margin-bottom: 16px;
+}
+.combo-texto { display: flex; flex-direction: column; gap: 2px; }
+.combo-texto strong { font-size: 13px; color: #1a4a2e; }
+.combo-texto span { font-size: 12px; color: #666; }
+.btn-combo {
+background: #edf7f1;
+color: #1a4a2e;
+border: none;
+border-radius: 10px;
+padding: 10px 14px;
+font-size: 13px;
+font-weight: 700;
+text-decoration: none;
+white-space: nowrap;
+transition: all 0.2s;
+}
+.btn-combo:hover { background: #2d7a4f; color: white; }
+
+/* FILTRO — WHATSAPP */
+.whatsapp-card {
+background: #effdf4;
+border: 1px solid #c3e6d4;
+border-radius: 16px;
+padding: 20px;
+text-align: center;
+margin-bottom: 16px;
+}
+.whatsapp-card h3 { font-size: 15px; color: #1a4a2e; margin-bottom: 6px; }
+.whatsapp-card p { font-size: 13px; color: #555; margin-bottom: 14px; line-height: 1.5; }
+.btn-whatsapp {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: #25D366;
+color: white;
+border-radius: 12px;
+padding: 13px 24px;
+font-size: 14px;
+font-weight: 700;
+text-decoration: none;
+transition: all 0.2s;
+}
+.btn-whatsapp:hover { background: #1ebe5a; transform: translateY(-2px); box-shadow: 0 6px 16px rgba(37,211,102,0.35); }
+
+.cta-footnote {
+text-align: center;
+font-size: 12px;
+color: #888;
+margin-top: 4px;
+}
+.cta-footnote a { color: #2d7a4f; font-weight: 600; text-decoration: none; }
+
+/* FOOTER */
+.quiz-footer {
+text-align: center;
+padding: 20px;
+font-size: 11px;
+color: #aaa;
+}
+.quiz-footer a { color: #4caf7d; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="header-badge">🎁 Tu bonus exclusivo</div>
+<div class="header-brand">DolorConCiencia</div>
+<h1>Tu <span>Mapa del Dolor</span><br>Personalizado</h1>
+<p>8 preguntas · 2 minutos · Descubrí exactamente qué tipo de dolor tenés y por qué no mejora</p>
+</div>
+
+<div class="progress-wrap">
+<div class="progress-info">
+<span>Pregunta <strong id="prog-num">1</strong> de 8</span>
+<span id="prog-pct">0% completado</span>
+</div>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<div class="main">
+
+<!-- PREGUNTAS -->
+<div id="quiz">
+
+<div class="pregunta-card active" data-q="1">
+<div class="pregunta-num">Pregunta 01 / 08</div>
+<div class="pregunta-texto">¿Dónde sentís el dolor con más frecuencia?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Parte baja de la espalda (lumbar)</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Cuello, nuca o entre los hombros</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Alternado: a veces lumbar, a veces cervical</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-siguiente" id="btn-sig-1">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="2">
+<div class="pregunta-num">Pregunta 02 / 08</div>
+<div class="pregunta-texto">¿Cuándo aparece o empeora el dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Después de estar sentada mucho tiempo</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Al final del día de trabajo o estudio</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">En cualquier momento, sin causa clara</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(2)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-2">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="3">
+<div class="pregunta-num">Pregunta 03 / 08</div>
+<div class="pregunta-texto">¿Cómo describirías tu dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Pesado y opresivo, como una carga</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Tenso y contracturado, como nudos</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Agudo o punzante, aparece de repente</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(3)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-3">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="4">
+<div class="pregunta-num">Pregunta 04 / 08</div>
+<div class="pregunta-texto">¿Qué alivia (aunque sea temporalmente) el dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Caminar, moverse, cambiar de posición</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Calor, masajes o estiramiento del cuello</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Nada lo alivia de forma consistente</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(4)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-4">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="5">
+<div class="pregunta-num">Pregunta 05 / 08</div>
+<div class="pregunta-texto">¿Cuántas horas al día pasás sentada?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Más de 6 horas (trabajo o estudio)</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Entre 3 y 6 horas</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Menos de 3 horas, pero igual me duele</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(5)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-5">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="6">
+<div class="pregunta-num">Pregunta 06 / 08</div>
+<div class="pregunta-texto">¿Qué intentaste sin resultados duraderos?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Reposo y antiinflamatorios</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Masajes y kinesiología</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Todo lo anterior y más, sin mejora real</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(6)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-6">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="7">
+<div class="pregunta-num">Pregunta 07 / 08</div>
+<div class="pregunta-texto">¿El dolor afecta tu sueño o descanso?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">A veces, especialmente si trabajé mucho</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Sí, me cuesta encontrar posición para dormir</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Casi siempre, el dolor me despierta</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(7)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-7">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="8">
+<div class="pregunta-num">Pregunta 08 / 08</div>
+<div class="pregunta-texto">¿Cuánto tiempo llevás con este dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Menos de 6 meses</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Entre 6 meses y 2 años</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Más de 2 años (dolor crónico)</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(8)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-8">Ver mi resultado →</button>
+</div>
+</div>
+
+</div>
+
+<!-- RESULTADO -->
+<div id="resultado">
+
+<div class="resultado-header">
+<div class="resultado-emoji" id="res-emoji">🔶</div>
+<div class="resultado-tag" id="res-tag">Perfil Postural</div>
+<div class="resultado-nombre" id="res-nombre">Tu dolor es postural</div>
+<div class="resultado-subtitulo" id="res-subtitulo">Aquí está lo que está pasando en tu cuerpo</div>
+</div>
+
+<div class="resultado-card">
+<h3>🔍 ¿Qué significa este perfil?</h3>
+<p id="res-desc"></p>
+</div>
+
+<div class="resultado-card">
+<h3>⚡ Por qué no mejoraba hasta ahora</h3>
+<ul class="causa-list" id="res-causas"></ul>
+</div>
+
+<div class="resultado-card">
+<h3>✅ Tu punto de partida</h3>
+<p id="res-inicio"></p>
+</div>
+
+<!-- CTA REDISEÑADO: la App como protagonista -->
+<div class="cta-card">
+<div class="cta-eyebrow">Tu próximo paso</div>
+<h3>Tu protocolo personalizado ya está en la App</h3>
+<p>El mismo enfoque de la Guía, pero interactivo: seguimiento día a día, progreso guardado y rutina adaptada a tu perfil — directo desde el celular.</p>
+<div class="cta-precio-wrap">
+<div class="cta-precio-ahora"><span>$</span>24.99 <span>USD</span></div>
+</div>
+<a href="https://pay.hotmart.com/H106254242M" class="btn-comprar" target="_blank" rel="noopener">Quiero la App ahora →</a>
+<div class="cta-bonus">
+🎁 <strong>Ya tenés tu Mapa del Dolor incluido.</strong><br>
+Acceso inmediato · Apto para tu perfil específico
+</div>
+</div>
+
+<div class="garantia">🛡️ Si en 7 días no ves mejoras, te devolvemos el dinero.</div>
+
+<!-- UPSELL: combo -->
+<div class="combo-card">
+<div class="combo-texto">
+<strong>¿Querés también la Guía en PDF?</strong>
+<span>Combo App + Guía 28 Días por $32.99 USD</span>
+</div>
+<a href="https://pay.hotmart.com/H106254242M?off=12j5q195&checkoutMode=10" class="btn-combo" target="_blank" rel="noopener">Ver Combo →</a>
+</div>
+
+<!-- FILTRO: comprador listo vs. curioso -->
+<div class="whatsapp-card">
+<h3>💬 ¿Tenés dudas antes de decidir?</h3>
+<p>Contame tu caso por WhatsApp y te ayudo a elegir lo que necesitás — sin compromiso.</p>
+<a href="#" id="wa-link" class="btn-whatsapp" target="_blank" rel="noopener">Hablar con Majo</a>
+</div>
+
+<div class="cta-footnote">
+¿Preferís empezar solo con la Guía en PDF? <a href="https://go.hotmart.com/Q106071569H" target="_blank" rel="noopener">Comprala acá por $14.99 →</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="quiz-footer">
+<strong>DolorConCiencia</strong> · <a href="https://dolorconciencia.lat">dolorconciencia.lat</a><br>
+Este contenido es educativo y no reemplaza la consulta médica profesional.
+</div>
+
+<script>
+const respuestas = {};
+let preguntaActual = 1;
+const totalPreguntas = 8;
+const WHATSAPP_NUM = '5492494205535';
+
+const perfiles = {
+A: {
+emoji: '🟡',
+tag: 'Perfil Postural',
+tagColor: '#f0b429',
+tagBg: '#fff8e1',
+nombre: 'Tu dolor es principalmente postural',
+subtitulo: 'El origen está en cómo estás usando tu cuerpo',
+desc: 'Pasás muchas horas sentada y tus músculos estabilizadores — especialmente el glúteo mayor y el core — están inhibidos. Tu columna lumbar está cargando un peso que ellos deberían sostener. El dolor aparece porque el sistema está desequilibrado, no porque algo esté "roto".',
+causas: [
+'Usaste reposo cuando tu cuerpo necesitaba activación',
+'Te estiraste sin activar los músculos que sostienen la postura',
+'La causa real (músculos inhibidos) nunca fue tratada'
+],
+inicio: 'Tu prioridad es la activación neuromuscular. Antes de fortalecer ni estirar, necesitás despertar los músculos que dejaron de trabajar. La Fase 1 de la Guía está diseñada exactamente para esto.'
+},
+B: {
+emoji: '🔵',
+tag: 'Perfil Muscular',
+tagColor: '#2d7a4f',
+tagBg: '#edf7f1',
+nombre: 'Tu dolor es principalmente muscular',
+subtitulo: 'Tensión acumulada que el cuerpo no pudo liberar',
+desc: 'Tu sistema muscular acumuló tensión sostenida por horas de trabajo sin las pausas adecuadas. Los músculos del cuello, trapecios y paravertebrales están en contracción casi permanente. El resultado es rigidez, contracturas y un dolor que no cede aunque descanses.',
+causas: [
+'Los masajes aliviaban temporalmente pero no cambiaban el patrón',
+'La tensión muscular crónica necesita trabajo activo, no pasivo',
+'Sin pausas activas, el ciclo de tensión se reinicia cada día'
+],
+inicio: 'Tu prioridad es la liberación miofascial activa combinada con movimiento suave. La Guía incluye una secuencia de liberación progresiva que rompe el ciclo de tensión acumulada sin agravar el dolor.'
+},
+C: {
+emoji: '🟢',
+tag: 'Perfil Crónico',
+tagColor: '#276749',
+tagBg: '#f0fdf4',
+nombre: 'Tu dolor es crónico y multifactorial',
+subtitulo: 'Necesitás un abordaje progresivo e integral',
+desc: 'Llevás tiempo conviviendo con este dolor y probaste de todo sin resultados duraderos. Eso no significa que no tenga solución — significa que necesitás un enfoque que trabaje movilidad, fuerza y hábitos de forma integrada y progresiva, no parches aislados.',
+causas: [
+'Los tratamientos aislados (masajes, ibuprofeno, reposo) no cambian el sistema',
+'El dolor crónico tiene un componente neuromuscular que requiere re-educación',
+'Faltó un protocolo progresivo que construya sobre sí mismo semana a semana'
+],
+inicio: 'Tu prioridad es un protocolo estructurado de 28 días que empiece desde cero y construya progresivamente. La Guía fue diseñada pensando exactamente en personas con tu perfil: con historia de dolor crónico y sin resultados previos.'
+}
+};
+
+// Inicializar botones
+document.querySelectorAll('.pregunta-card').forEach(card => {
+const q = card.dataset.q;
+const btnSig = card.querySelector('.btn-siguiente');
+card.querySelectorAll('.opcion-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+card.querySelectorAll('.opcion-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
+respuestas[q] = btn.dataset.value;
+btnSig.classList.add('enabled');
+});
+});
+btnSig.addEventListener('click', () => {
+if (!respuestas[q]) return;
+if (parseInt(q) === totalPreguntas) {
+mostrarResultado();
+} else {
+goNext(parseInt(q));
+}
+});
+});
+
+function goNext(current) {
+document.querySelector(`[data-q="${current}"]`).classList.remove('active');
+document.querySelector(`[data-q="${current + 1}"]`).classList.add('active');
+preguntaActual = current + 1;
+updateProgress();
+window.scrollTo(0, 0);
+}
+
+function goBack(current) {
+document.querySelector(`[data-q="${current}"]`).classList.remove('active');
+document.querySelector(`[data-q="${current - 1}"]`).classList.add('active');
+preguntaActual = current - 1;
+updateProgress();
+window.scrollTo(0, 0);
+}
+
+function updateProgress() {
+const pct = Math.round(((preguntaActual - 1) / totalPreguntas) * 100);
+document.getElementById('progress-fill').style.width = pct + '%';
+document.getElementById('prog-num').textContent = preguntaActual;
+document.getElementById('prog-pct').textContent = pct + '% completado';
+}
+
+function mostrarResultado() {
+// Contar respuestas
+const conteo = { A: 0, B: 0, C: 0 };
+Object.values(respuestas).forEach(v => conteo[v]++);
+const perfil = Object.keys(conteo).reduce((a, b) => conteo[a] >= conteo[b] ? a : b);
+const p = perfiles[perfil];
+
+// Llenar resultado
+document.getElementById('res-emoji').textContent = p.emoji;
+const tag = document.getElementById('res-tag');
+tag.textContent = p.tag;
+tag.style.background = p.tagBg;
+tag.style.color = p.tagColor;
+tag.style.fontWeight = '800';
+tag.style.padding = '6px 18px';
+tag.style.borderRadius = '20px';
+tag.style.fontSize = '11px';
+tag.style.letterSpacing = '1.5px';
+tag.style.textTransform = 'uppercase';
+document.getElementById('res-nombre').textContent = p.nombre;
+document.getElementById('res-subtitulo').textContent = p.subtitulo;
+document.getElementById('res-desc').textContent = p.desc;
+document.getElementById('res-inicio').textContent = p.inicio;
+
+const causasList = document.getElementById('res-causas');
+causasList.innerHTML = '';
+p.causas.forEach(c => {
+const li = document.createElement('li');
+li.textContent = c;
+causasList.appendChild(li);
+});
+
+// Armar link de WhatsApp con el perfil ya cargado (filtro comprador listo vs. curioso)
+const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero entender mejor qué me conviene antes de decidir 🙂';
+document.getElementById('wa-link').href = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
+
+// Mostrar
+document.getElementById('quiz').style.display = 'none';
+document.getElementById('resultado').style.display = 'block';
+document.getElementById('progress-fill').style.width = '100%';
+document.getElementById('prog-num').textContent = '8';
+document.getElementById('prog-pct').textContent = '100% completado';
+window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
