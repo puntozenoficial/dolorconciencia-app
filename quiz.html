@@ -369,6 +369,91 @@ font-size: 11px;
 color: #aaa;
 }
 .quiz-footer a { color: #4caf7d; text-decoration: none; }
+
+/* EDUCACIÓN - DATOS REALES */
+.educacion-card {
+background: white;
+border-radius: 16px;
+padding: 28px 24px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+margin-bottom: 18px;
+}
+
+.educacion-card.warning {
+background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+border-left: 5px solid #f0b429;
+padding: 28px 24px;
+}
+
+.educacion-card.neurociencia {
+background: #edf7f1;
+border-left: 5px solid #2d7a4f;
+padding: 28px 24px;
+}
+
+.educacion-card.timeline {
+background: linear-gradient(135deg, #f0fdf4 0%, #edf7f1 100%);
+border-left: 5px solid #2d7a4f;
+padding: 28px 24px;
+}
+
+.educacion-card h3 {
+font-size: 17px;
+font-weight: 800;
+color: #1a4a2e;
+margin-bottom: 14px;
+line-height: 1.3;
+}
+
+.educacion-card.warning h3 { color: #5a4500; }
+
+.educacion-card p {
+font-size: 14px;
+color: #333;
+line-height: 1.7;
+margin-bottom: 14px;
+}
+
+.educacion-card ul {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin: 0;
+padding: 0;
+}
+
+.educacion-card ul li {
+display: flex;
+align-items: flex-start;
+gap: 12px;
+font-size: 14px;
+color: #333;
+line-height: 1.6;
+}
+
+.educacion-card.warning ul li { color: #5a4500; }
+
+.educacion-card ul li::before {
+content: '⚠️';
+flex-shrink: 0;
+font-size: 18px;
+display: flex;
+align-items: center;
+}
+
+.educacion-card.neurociencia ul li::before {
+content: '🧠';
+}
+
+.educacion-card.timeline ul li::before {
+content: '⏱️';
+}
+
+.educacion-card strong {
+font-weight: 700;
+color: #1a4a2e;
+}
 </style>
 </head>
 <body>
@@ -531,6 +616,44 @@ color: #aaa;
 <p id="res-inicio"></p>
 </div>
 
+<!-- EDUCACIÓN: POR QUÉ REEDUCAR (DATOS REALES) -->
+
+<div class="educacion-card warning">
+<h3>⚠️ Lo que NO sabías sobre el dolor de espalda y cuello</h3>
+<p style="margin-bottom: 14px; font-weight: 600;">Los números son claros: ignorar el dolor ahora puede arruinar tu vida más adelante.</p>
+<ul>
+<li><strong>7 de cada 10 jóvenes</strong> con dolor de espalda lo siguen padeciendo en la edad adulta si no lo tratan a tiempo.</li>
+<li><strong>1 de cada 4 universitarios</strong> tiene dolor de cuello o espalda crónico — y muchos todavía creen que "desaparece solo".</li>
+<li><strong>El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo.</strong> Más que los accidentes de tránsito. Más que varias enfermedades que te asustan más.</li>
+<li><strong>Sin tratamiento estructurado,</strong> el dolor progresa: intermitente → frecuente → crónico → cambios estructurales → limitaciones permanentes.</li>
+<li><strong>Tu sistema nervioso está aprendiendo AHORA mismo</strong> que el dolor es "normal". Cada día que lo normalizas, le enseñas a tu cerebro que está bien vivir así.</li>
+</ul>
+</div>
+
+<div class="educacion-card neurociencia">
+<h3>🧠 Por qué tu cerebro necesita reeducarse (no es paranoia, es ciencia)</h3>
+<p>Tu cerebro es un órgano de aprendizaje. Y justo ahora está en modo "aprender a vivir con dolor".<br><br>
+<strong>El ciclo actual:</strong><br>
+• Cada vez que duele → tu sistema nervioso refuerza el patrón de dolor.<br>
+• Cada vez que descansas → le dices a tu cuerpo que el movimiento es peligroso.<br>
+• Cada analgésico que tomas sin cambiar el patrón → das más combustible al ciclo de dolor automático.<br><br>
+<strong>El resultado:</strong> tu cerebro entiende que el dolor es NORMAL y lo perpetúa automáticamente. Es como estar atrapado en un loop.<br><br>
+<strong>La buena noticia (y es REAL):</strong> la neuroplasticidad funciona en ambas direcciones. El mismo mecanismo que te enseñó a doler, puede enseñarte a NO doler. Tu sistema nervioso puede APRENDER a vivir sin dolor.<br><br>
+<strong>El plazo:</strong> 28 días de reeducación consistente cambian el patrón de forma permanente. Tu sistema nervioso aprende que el movimiento es seguro, que la postura correcta es el nuevo "normal", que la vida sin dolor es posible.
+</p>
+</div>
+
+<div class="educacion-card timeline">
+<h3>⏰ Esto es lo que pasa si esperas (timeline real)</h3>
+<ul>
+<li><strong>Hoy:</strong> Dolor intermitente. Aparece y desaparece. Crees que "va a pasar".</li>
+<li><strong>3-6 meses normalizándolo:</strong> Dolor más frecuente. Menos días sin molestias. Empiezas a limitar actividades.</li>
+<li><strong>1-2 años sin cambio:</strong> Dolor crónico instalado. Cambios visibles en tu postura. Debilidad muscular evidente. Limitaciones en el trabajo/deporte/vida normal.</li>
+<li><strong>2+ años así:</strong> Cambios estructurales en discos y articulaciones. Ese punto es difícil (no imposible, pero difícil) de revertir completamente.</li>
+<li><strong>La línea de corte es AHORA.</strong> Cuanto antes cambies el patrón, más fácil es revertirlo. La diferencia entre actuar hoy vs. en 6 meses es ENORME.</li>
+</ul>
+</div>
+
 <!-- CTA REDISEÑADO: la App como protagonista -->
 <div class="cta-card">
 <div class="cta-eyebrow">Tu próximo paso</div>
@@ -542,7 +665,8 @@ color: #aaa;
 <a href="https://pay.hotmart.com/H106254242M" class="btn-comprar" target="_blank" rel="noopener">Quiero la App ahora →</a>
 <div class="cta-bonus">
 🎁 <strong>Ya tenés tu Mapa del Dolor incluido.</strong><br>
-Acceso inmediato · Apto para tu perfil específico
+Acceso inmediato · Apto para tu perfil específico<br>
+<strong style="color: #a8e6c3;">⭐ Acceso de por vida</strong>
 </div>
 </div>
 
@@ -708,7 +832,7 @@ li.textContent = c;
 causasList.appendChild(li);
 });
 
-// Armar link de WhatsApp con el perfil ya cargado (filtro comprador listo vs. curioso)
+// Armar link de WhatsApp con el perfil ya cargado
 const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero entender mejor qué me conviene antes de decidir 🙂';
 document.getElementById('wa-link').href = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
 
