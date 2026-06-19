@@ -416,6 +416,21 @@ line-height: 1.6;
 .acceso-vida-split .mitad .label { font-size: 12px; color: #1a4a2e; line-height: 1.4; display: block; }
 .acceso-vida-split .signo { font-size: 18px; font-weight: 800; color: #2d7a4f; flex: 0 0 auto; }
 
+/* URGENCIA — diagnóstico */
+.urgencia-card {
+background: #fff4f4;
+border: 2px solid #d64545;
+border-radius: 14px;
+padding: 18px 20px;
+margin-bottom: 16px;
+}
+.urgencia-card p {
+font-size: 14px;
+color: #4a1010;
+line-height: 1.6;
+}
+.urgencia-card strong { color: #d64545; }
+
 /* FILTRO — WHATSAPP */
 .whatsapp-card {
 background: #effdf4;
@@ -718,6 +733,18 @@ color: #1a4a2e;
 <p id="res-inicio"></p>
 </div>
 
+<!-- URGENCIA: conecta el diagnóstico con la realidad de no actuar -->
+<div class="urgencia-card">
+<p id="res-urgencia"></p>
+</div>
+
+<!-- CTA TEMPRANO: puente directo a WhatsApp apenas ve su resultado -->
+<div class="whatsapp-card">
+<h3>💬 Quiero que María José analice mi resultado</h3>
+<p>Contame tu caso por WhatsApp y te digo, en base a tu perfil, exactamente qué te conviene hacer ahora.</p>
+<a href="#" id="wa-link-top" class="btn-whatsapp" target="_blank" rel="noopener">Hablar con Majo por WhatsApp →</a>
+</div>
+
 <!-- EDUCACIÓN: POR QUÉ REEDUCAR (DATOS REALES) -->
 
 <div class="educacion-card warning">
@@ -853,11 +880,11 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 
 <div class="garantia">🛡️ Si en 7 días no ves mejoras, te devolvemos el dinero.</div>
 
-<!-- FILTRO: comprador listo vs. curioso -->
+<!-- CIERRE: puente final a WhatsApp -->
 <div class="whatsapp-card">
-<h3>💬 ¿Tenés dudas antes de decidir?</h3>
-<p>Contame tu caso por WhatsApp y te ayudo a elegir lo que necesitás — sin compromiso.</p>
-<a href="#" id="wa-link" class="btn-whatsapp" target="_blank" rel="noopener">Hablar con Majo</a>
+<h3>🧠 Ahora que conocés tu mapa...</h3>
+<p>El siguiente paso es saber cómo reentrenar tu sistema nervioso para que el dolor no vuelva. Escribime a WhatsApp y te digo por dónde empezar.</p>
+<a href="#" id="wa-link" class="btn-whatsapp" target="_blank" rel="noopener">Escribirle a Majo →</a>
 </div>
 
 <div class="cta-footnote">
@@ -887,13 +914,14 @@ tagColor: '#f0b429',
 tagBg: '#fff8e1',
 nombre: 'Tu dolor es principalmente postural',
 subtitulo: 'El origen está en cómo estás usando tu cuerpo',
-desc: 'Pasás muchas horas sentada y tus músculos estabilizadores — especialmente el glúteo mayor y el core — están inhibidos. Tu columna lumbar está cargando un peso que ellos deberían sostener. El dolor aparece porque el sistema está desequilibrado, no porque algo esté "roto".',
+desc: 'Pasás muchas horas sentada, y los músculos que deberían sostener tu espalda baja (glúteos y abdomen) se "apagaron" de tanto no usarlos. Tu zona lumbar termina cargando un peso que no le corresponde a ella. El dolor aparece porque el cuerpo está desequilibrado, no porque tengas algo roto.',
 causas: [
-'Usaste reposo cuando tu cuerpo necesitaba activación',
-'Te estiraste sin activar los músculos que sostienen la postura',
-'La causa real (músculos inhibidos) nunca fue tratada'
+'Usaste reposo cuando tu cuerpo necesitaba movimiento',
+'Te estiraste sin despertar los músculos que sostienen tu postura',
+'La causa real (músculos "apagados") nunca fue tratada'
 ],
-inicio: 'Tu prioridad es la activación neuromuscular. Antes de fortalecer ni estirar, necesitás despertar los músculos que dejaron de trabajar. La Fase 1 de la Guía está diseñada exactamente para esto.'
+inicio: 'Tu prioridad es despertar esos músculos antes de fortalecer o estirar. La primera fase de tu protocolo está diseñada exactamente para esto.',
+urgencia: 'Este tipo de dolor es muy común — y por eso mismo se subestima. Si no lo corregís ahora, <strong>tiende a empeorar con los años</strong>. La buena noticia: activando los músculos correctos, se puede revertir en 28 días.'
 },
 B: {
 emoji: '🔵',
@@ -902,13 +930,14 @@ tagColor: '#2d7a4f',
 tagBg: '#edf7f1',
 nombre: 'Tu dolor es principalmente muscular',
 subtitulo: 'Tensión acumulada que el cuerpo no pudo liberar',
-desc: 'Tu sistema muscular acumuló tensión sostenida por horas de trabajo sin las pausas adecuadas. Los músculos del cuello, trapecios y paravertebrales están en contracción casi permanente. El resultado es rigidez, contracturas y un dolor que no cede aunque descanses.',
+desc: 'Tus músculos acumularon tensión por horas y horas de trabajo, sin las pausas que necesitaban. Los del cuello y la espalda alta quedan casi todo el tiempo contraídos. El resultado: rigidez, nudos, y un dolor que no se va ni cuando descansás.',
 causas: [
-'Los masajes aliviaban temporalmente pero no cambiaban el patrón',
-'La tensión muscular crónica necesita trabajo activo, no pasivo',
-'Sin pausas activas, el ciclo de tensión se reinicia cada día'
+'Los masajes alivian un rato, pero no cambian el problema de fondo',
+'Esa tensión acumulada necesita movimiento, no solo descanso',
+'Sin pausas activas, la tensión se vuelve a acumular cada día'
 ],
-inicio: 'Tu prioridad es la liberación miofascial activa combinada con movimiento suave. La Guía incluye una secuencia de liberación progresiva que rompe el ciclo de tensión acumulada sin agravar el dolor.'
+inicio: 'Tu prioridad es soltar esa tensión con movimiento suave y progresivo. Tu protocolo incluye una secuencia pensada para romper ese ciclo, sin forzar ni agravar el dolor.',
+urgencia: 'Esta tensión no se va sola con masajes ni con descanso — y si se la deja así, suele volverse crónica. La buena noticia: se puede revertir en 28 días trabajando la causa, no solo el síntoma.'
 },
 C: {
 emoji: '🟢',
@@ -917,13 +946,14 @@ tagColor: '#276749',
 tagBg: '#f0fdf4',
 nombre: 'Tu dolor es crónico y multifactorial',
 subtitulo: 'Necesitás un abordaje progresivo e integral',
-desc: 'Llevás tiempo conviviendo con este dolor y probaste de todo sin resultados duraderos. Eso no significa que no tenga solución — significa que necesitás un enfoque que trabaje movilidad, fuerza y hábitos de forma integrada y progresiva, no parches aislados.',
+desc: 'Llevás tiempo conviviendo con este dolor y probaste de todo sin resultados que duren. Eso no significa que no tenga solución — significa que necesitás algo que trabaje el movimiento, la fuerza y tus hábitos diarios juntos y de a poco, no soluciones sueltas que no se conectan entre sí.',
 causas: [
-'Los tratamientos aislados (masajes, ibuprofeno, reposo) no cambian el sistema',
-'El dolor crónico tiene un componente neuromuscular que requiere re-educación',
-'Faltó un protocolo progresivo que construya sobre sí mismo semana a semana'
+'Los tratamientos sueltos (masajes, antiinflamatorios, reposo) no cambian la causa de fondo',
+'Un dolor de tanto tiempo necesita que tu cuerpo reaprenda a moverse sin dolor',
+'Faltó un protocolo progresivo que vaya sumando, semana a semana'
 ],
-inicio: 'Tu prioridad es un protocolo estructurado de 28 días que empiece desde cero y construya progresivamente. La Guía fue diseñada pensando exactamente en personas con tu perfil: con historia de dolor crónico y sin resultados previos.'
+inicio: 'Tu prioridad es un protocolo de 28 días que empiece desde cero y vaya sumando, semana a semana. Está pensado exactamente para personas con tu historia: dolor de mucho tiempo y sin resultados previos.',
+urgencia: 'Llevás tiempo con esto, y cuanto más pasa, más cuesta revertirlo. Pero no es tarde: con el protocolo correcto podés empezar a notar cambios reales en 28 días.'
 }
 };
 
@@ -995,6 +1025,7 @@ document.getElementById('res-nombre').textContent = p.nombre;
 document.getElementById('res-subtitulo').textContent = p.subtitulo;
 document.getElementById('res-desc').textContent = p.desc;
 document.getElementById('res-inicio').textContent = p.inicio;
+document.getElementById('res-urgencia').innerHTML = p.urgencia;
 
 const causasList = document.getElementById('res-causas');
 causasList.innerHTML = '';
@@ -1005,8 +1036,11 @@ causasList.appendChild(li);
 });
 
 // Armar link de WhatsApp con el perfil ya cargado
-const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero entender mejor qué me conviene antes de decidir 🙂';
-document.getElementById('wa-link').href = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
+const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero que analices mi resultado y me digas qué me conviene 🙂';
+const waHref = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
+document.getElementById('wa-link').href = waHref;
+const waLinkTop = document.getElementById('wa-link-top');
+if (waLinkTop) waLinkTop.href = waHref;
 
 // Mostrar
 document.getElementById('quiz').style.display = 'none';
