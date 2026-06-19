@@ -239,6 +239,43 @@ flex-shrink: 0;
 margin-top: 1px;
 }
 
+/* TESTIMONIOS REALES */
+.testimonios-card {
+background: white;
+border-radius: 16px;
+padding: 24px 22px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+margin-bottom: 18px;
+}
+.testimonios-eyebrow {
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: #2d7a4f;
+margin-bottom: 16px;
+text-align: center;
+}
+.testimonio { padding: 14px 0; border-bottom: 1px solid #edf7f1; }
+.testimonio:first-of-type { padding-top: 0; }
+.testimonio:last-of-type { border-bottom: none; padding-bottom: 4px; }
+.testimonio-stars { color: #f0b429; font-size: 13px; margin-bottom: 6px; letter-spacing: 1px; }
+.testimonio p {
+font-size: 14px;
+color: #333;
+line-height: 1.6;
+margin-bottom: 8px;
+font-style: italic;
+}
+.testimonio p::before, .testimonio p::after { content: '"'; }
+.testimonio-autor { font-size: 12px; color: #2d7a4f; font-weight: 700; }
+.testimonios-nota { font-size: 11px; color: #999; text-align: center; margin-top: 12px; }
+
+/* STAT DESTACADO dentro de tarjeta educativa */
+.stat-highlight { background: #fff4f4; border: 2px solid #d64545; border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; text-align: center; }
+.stat-highlight .stat-num { font-size: 26px; font-weight: 800; color: #d64545; display: block; margin-bottom: 4px; }
+.stat-highlight .stat-label { font-size: 13px; color: #4a1010; line-height: 1.4; }
+
 /* CTA — APP PROTAGONISTA */
 .cta-card {
 background: linear-gradient(135deg, #1a4a2e 0%, #2d7a4f 100%);
@@ -287,6 +324,38 @@ line-height: 1.5;
 }
 .cta-bonus strong { font-size: 13px; }
 
+/* OFERTA: banner de urgencia compartido (App + Combo) */
+.oferta-header {
+background: linear-gradient(135deg, #f0b429 0%, #d99a1f 100%);
+border-radius: 14px;
+padding: 16px 20px;
+text-align: center;
+margin-bottom: 16px;
+}
+.oferta-badge {
+font-size: 17px;
+font-weight: 800;
+letter-spacing: 0.3px;
+color: #4a3500;
+margin-bottom: 6px;
+}
+.oferta-timer {
+font-size: 14px;
+font-weight: 700;
+color: #4a3500;
+}
+.oferta-timer #countdown {
+font-family: 'Courier New', monospace;
+font-weight: 800;
+font-size: 16px;
+color: #4a3500;
+background: rgba(255,255,255,0.55);
+padding: 3px 10px;
+border-radius: 6px;
+margin-left: 4px;
+letter-spacing: 0.5px;
+}
+
 .garantia {
 display: flex;
 align-items: center;
@@ -298,34 +367,54 @@ margin-top: 8px;
 margin-bottom: 16px;
 }
 
-/* COMBO UPSELL */
+/* COMBO: misma oferta, resaltado como la opción más completa */
 .combo-card {
-background: white;
-border: 2px dashed #c3e6d4;
-border-radius: 14px;
-padding: 16px 18px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 12px;
+border: 2px solid #ffd166;
+}
+.combo-badge {
+display: inline-block;
+background: #ffd166;
+color: #4a3500;
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+padding: 4px 12px;
+border-radius: 20px;
+margin-bottom: 12px;
+}
+
+/* ACCESO DE POR VIDA: callout grande */
+.acceso-vida-card {
+background: #edf7f1;
+border: 2px solid #2d7a4f;
+border-radius: 16px;
+padding: 22px 20px;
 margin-bottom: 16px;
 }
-.combo-texto { display: flex; flex-direction: column; gap: 2px; }
-.combo-texto strong { font-size: 13px; color: #1a4a2e; }
-.combo-texto span { font-size: 12px; color: #666; }
-.btn-combo {
-background: #edf7f1;
-color: #1a4a2e;
-border: none;
-border-radius: 10px;
-padding: 10px 14px;
-font-size: 13px;
-font-weight: 700;
-text-decoration: none;
-white-space: nowrap;
-transition: all 0.2s;
+.acceso-vida-badge {
+display: inline-block;
+background: #2d7a4f;
+color: white;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+padding: 5px 14px;
+border-radius: 20px;
+margin-bottom: 12px;
 }
-.btn-combo:hover { background: #2d7a4f; color: white; }
+.acceso-vida-card p {
+font-size: 15px;
+color: #1a4a2e;
+line-height: 1.6;
+}
+.acceso-vida-card strong { color: #1a4a2e; }
+.acceso-vida-split { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+.acceso-vida-split .mitad { flex: 1; background: white; border-radius: 12px; padding: 14px 10px; text-align: center; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+.acceso-vida-split .mitad .num { font-size: 19px; font-weight: 800; color: #2d7a4f; display: block; margin-bottom: 4px; line-height: 1.2; }
+.acceso-vida-split .mitad .label { font-size: 12px; color: #1a4a2e; line-height: 1.4; display: block; }
+.acceso-vida-split .signo { font-size: 18px; font-weight: 800; color: #2d7a4f; flex: 0 0 auto; }
 
 /* FILTRO — WHATSAPP */
 .whatsapp-card {
@@ -454,6 +543,19 @@ content: '⏱️';
 font-weight: 700;
 color: #1a4a2e;
 }
+
+/* EVIDENCIA VISUAL: foto real */
+.evidencia-card { background: white; border-radius: 16px; padding: 16px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); margin-bottom: 18px; text-align: center; }
+.evidencia-card img { width: 100%; border-radius: 12px; display: block; }
+.evidencia-card .evidencia-caption { font-size: 13px; color: #555; line-height: 1.55; margin-top: 12px; padding: 0 6px; text-align: left; }
+.evidencia-card .evidencia-caption strong { color: #1a4a2e; }
+
+/* VIDEO: la app por dentro */
+.app-video-card { background: #1a4a2e; border-radius: 16px; padding: 22px 18px; margin-bottom: 16px; text-align: center; }
+.app-video-card .video-eyebrow { color: #a8e6c3; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.app-video-card h3 { color: white; font-size: 16px; font-weight: 800; margin-bottom: 14px; line-height: 1.3; }
+.app-video-card video { width: 100%; max-width: 280px; border-radius: 14px; display: block; margin: 0 auto; background: #000; }
+.app-video-card p { color: #d4ede0; font-size: 13px; line-height: 1.6; margin-top: 14px; }
 </style>
 </head>
 <body>
@@ -620,11 +722,11 @@ color: #1a4a2e;
 
 <div class="educacion-card warning">
 <h3>⚠️ Lo que NO sabías sobre el dolor de espalda y cuello</h3>
+<div class="stat-highlight"><span class="stat-num">Top 6</span><span class="stat-label">El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo — más que los accidentes de tránsito.</span></div>
 <p style="margin-bottom: 14px; font-weight: 600;">Los números son claros: ignorar el dolor ahora puede arruinar tu vida más adelante.</p>
 <ul>
 <li><strong>7 de cada 10 jóvenes</strong> con dolor de espalda lo siguen padeciendo en la edad adulta si no lo tratan a tiempo.</li>
 <li><strong>1 de cada 4 universitarios</strong> tiene dolor de cuello o espalda crónico — y muchos todavía creen que "desaparece solo".</li>
-<li><strong>El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo.</strong> Más que los accidentes de tránsito. Más que varias enfermedades que te asustan más.</li>
 <li><strong>Sin tratamiento estructurado,</strong> el dolor progresa: intermitente → frecuente → crónico → cambios estructurales → limitaciones permanentes.</li>
 <li><strong>Tu sistema nervioso está aprendiendo AHORA mismo</strong> que el dolor es "normal". Cada día que lo normalizas, le enseñas a tu cerebro que está bien vivir así.</li>
 </ul>
@@ -639,8 +741,15 @@ color: #1a4a2e;
 • Cada analgésico que tomas sin cambiar el patrón → das más combustible al ciclo de dolor automático.<br><br>
 <strong>El resultado:</strong> tu cerebro entiende que el dolor es NORMAL y lo perpetúa automáticamente. Es como estar atrapado en un loop.<br><br>
 <strong>La buena noticia (y es REAL):</strong> la neuroplasticidad funciona en ambas direcciones. El mismo mecanismo que te enseñó a doler, puede enseñarte a NO doler. Tu sistema nervioso puede APRENDER a vivir sin dolor.<br><br>
-<strong>El plazo:</strong> 28 días de reeducación consistente cambian el patrón de forma permanente. Tu sistema nervioso aprende que el movimiento es seguro, que la postura correcta es el nuevo "normal", que la vida sin dolor es posible.
+<strong>El plazo:</strong> 28 días de reeducación consistente cambian el patrón de forma permanente. Tu sistema nervioso aprende que el movimiento es seguro, que la postura correcta es el nuevo "normal", que la vida sin dolor es posible.<br><br>
+Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso necesita para reaprender. <strong>El acceso a la App, en cambio, es de por vida:</strong> una vez reeducado el patrón, la usás para mantenerlo, repetirlo o ajustarlo cuando quieras, sin límite de tiempo.
 </p>
+</div>
+
+<!-- EVIDENCIA VISUAL: el enfoque tradicional vs. el sistema nervioso -->
+<div class="evidencia-card">
+<img src="imagen-quiz-mapa-dolor-optimizada.jpg" alt="Rutina tradicional tachada — la clave está en el sistema nervioso, no en repetir ejercicios al azar" loading="lazy">
+<div class="evidencia-caption">Durante años te enseñaron a repetir la misma rutina de ejercicios genéricos, sin mirar la causa real. <strong>La clave olvidada es tu sistema nervioso</strong> — y es exactamente lo que tu protocolo personalizado sí tiene en cuenta.</div>
 </div>
 
 <div class="educacion-card timeline">
@@ -654,32 +763,95 @@ color: #1a4a2e;
 </ul>
 </div>
 
-<!-- CTA REDISEÑADO: la App como protagonista -->
+<!-- TESTIMONIOS REALES -->
+<div class="testimonios-card">
+<div class="testimonios-eyebrow">Esto dicen quienes ya lo probaron</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Por fin entendí por qué me dolía, y eso ya fue un cambio enorme. Ahora termino 9 horas frente al monitor sin ese nudo insoportable entre los omóplatos. Todavía no lo puedo creer.</p>
+<div class="testimonio-autor">— Carlos, Abogado · 9 hs/día frente a la pantalla</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Pasé de un dolor insoportable a terminar la semana casi sin molestias. Solo 15 minutos en casa. Hay dos ejercicios específicos que me dieron una estabilidad que no sabía que me faltaba.</p>
+<div class="testimonio-autor">— Paola, Administrativa</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Era escéptico con las apps de salud, pero esta me sorprendió por lo práctica que es. Las notificaciones te sacan de la rutina automática y te hacen estirar un poco. Mi espalda me lo agradece al final de la jornada.</p>
+<div class="testimonio-autor">— Martín, Atención al cliente · 55 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Entre la facu, la compu y el sobrepeso, mi espalda vivía contracturada. Lo mejor fue que nunca me sentí juzgado ni fuera de estado físico — arranqué con las versiones fáciles y fui mejorando. Después de los 28 días siento más estabilidad y menos dolor lumbar.</p>
+<div class="testimonio-autor">— Felipe, Estudiante universitario</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Tengo 69 años y pensé que ya era tarde para mejorar mis dolores. Me daba miedo moverme — siempre escuché "cuidate la columna". La guía me ayudó a perder ese miedo: hoy puedo caminar más, dormir mejor y hasta jugar con mis nietos sin quedar dolorida al otro día.</p>
+<div class="testimonio-autor">— Susana, Jubilada · 69 años</div>
+</div>
+
+<div class="testimonios-nota">Testimonios reales de usuarios. Los resultados pueden variar según cada caso.</div>
+</div>
+
+<!-- VIDEO: la app por dentro -->
+<div class="app-video-card">
+<div class="video-eyebrow">Mirá por dentro</div>
+<h3>Esto es lo que vas a tener en tu celular</h3>
+<video src="video app, mapa de dolor.mp4" poster="video-app-poster.jpg" controls playsinline preload="metadata"></video>
+<p>Sin nada difícil ni complicado: rutinas guiadas paso a paso, seguimiento de tu progreso día a día y ejercicios pensados para tu perfil. Solo compromiso y ganas de que no duela más.</p>
+</div>
+
+<!-- OFERTA: banner de urgencia compartido (App + Combo) -->
+<div class="oferta-header" id="oferta-header">
+<div class="oferta-badge">🔥 Descuento por tiempo limitado — Solo por 24 horas</div>
+<div class="oferta-timer">Termina en <span id="countdown">24:00:00</span></div>
+</div>
+
+<!-- CTA: la App como protagonista -->
 <div class="cta-card">
 <div class="cta-eyebrow">Tu próximo paso</div>
 <h3>Tu protocolo personalizado ya está en la App</h3>
 <p>El mismo enfoque de la Guía, pero interactivo: seguimiento día a día, progreso guardado y rutina adaptada a tu perfil — directo desde el celular.</p>
-<div class="cta-precio-wrap">
-<div class="cta-precio-ahora"><span>$</span>24.99 <span>USD</span></div>
+
+<div class="cta-precio-wrap" id="cta-precio-wrap">
+<div class="cta-precio-antes">Antes $24.99 USD</div>
+<div class="cta-precio-ahora"><span>$</span>19.99 <span>USD</span></div>
 </div>
-<a href="https://pay.hotmart.com/H106254242M" class="btn-comprar" target="_blank" rel="noopener">Quiero la App ahora →</a>
-<div class="cta-bonus">
-🎁 <strong>Ya tenés tu Mapa del Dolor incluido.</strong><br>
-Acceso inmediato · Apto para tu perfil específico<br>
-<strong style="color: #a8e6c3;">⭐ Acceso de por vida</strong>
+<a href="https://hotm.io/app10off" class="btn-comprar" id="btn-comprar" target="_blank" rel="noopener">Quiero la App con 20% OFF →</a>
+</div>
+
+<!-- COMBO: misma oferta, resaltado como la opción más completa -->
+<div class="cta-card combo-card">
+<div class="combo-badge">⭐ La opción más completa</div>
+<h3>App + Guía en PDF (Combo)</h3>
+<p>Todo lo que necesitás en un solo lugar: la App con seguimiento día a día + la Guía completa en PDF para repasar offline cuando quieras.</p>
+
+<div class="cta-precio-wrap" id="combo-precio-wrap">
+<div class="cta-precio-antes">Antes $32.99 USD</div>
+<div class="cta-precio-ahora"><span>$</span>26.99 <span>USD</span></div>
+</div>
+<a href="https://hotm.io/combo20off" class="btn-comprar" id="btn-combo" target="_blank" rel="noopener">Quiero el Combo con 20% OFF →</a>
+</div>
+
+<!-- LO QUE REALMENTE ESTÁS COMPRANDO: 28 días vs. de por vida -->
+<div class="acceso-vida-card">
+<div class="acceso-vida-badge">⭐ Acceso de por vida</div>
+<p><strong>Importante:</strong> los 28 días son el tiempo que tu sistema nervioso necesita para reeducarse y aprender a moverse sin dolor — no es el tiempo que vas a poder usar la App. El acceso a la App <strong>no vence nunca</strong>: la tenés de por vida, para sostener el cambio, volver cuando la necesites y <strong>realmente transformar tu calidad de vida</strong> a largo plazo.</p>
+<div class="acceso-vida-split">
+<div class="mitad"><span class="num">28 días</span><span class="label">para reeducar tu sistema nervioso</span></div>
+<div class="signo">+</div>
+<div class="mitad"><span class="num">De por vida</span><span class="label">acceso a la App, para usarla siempre</span></div>
 </div>
 </div>
 
 <div class="garantia">🛡️ Si en 7 días no ves mejoras, te devolvemos el dinero.</div>
-
-<!-- UPSELL: combo -->
-<div class="combo-card">
-<div class="combo-texto">
-<strong>¿Querés también la Guía en PDF?</strong>
-<span>Combo App + Guía 28 Días por $32.99 USD</span>
-</div>
-<a href="https://pay.hotmart.com/H106254242M?off=12j5q195&checkoutMode=10" class="btn-combo" target="_blank" rel="noopener">Ver Combo →</a>
-</div>
 
 <!-- FILTRO: comprador listo vs. curioso -->
 <div class="whatsapp-card">
@@ -843,6 +1015,61 @@ document.getElementById('progress-fill').style.width = '100%';
 document.getElementById('prog-num').textContent = '8';
 document.getElementById('prog-pct').textContent = '100% completado';
 window.scrollTo(0, 0);
+
+iniciarCountdown();
+}
+
+// Oferta -20% por 24hs (App + Combo): el plazo arranca la primera vez que ESTE lead
+// ve su resultado (queda guardado en su navegador; no se reinicia en cada visita ni para otro visitante).
+function iniciarCountdown() {
+const STORAGE_KEY = 'dcc_oferta_deadline';
+const APP_HREF_NORMAL = 'https://pay.hotmart.com/H106254242M';
+const APP_HREF_OFERTA = 'https://hotm.io/app10off';
+const COMBO_HREF = 'https://hotm.io/combo20off';
+
+let deadline = parseInt(localStorage.getItem(STORAGE_KEY), 10);
+if (!deadline || isNaN(deadline)) {
+deadline = Date.now() + 24 * 60 * 60 * 1000;
+localStorage.setItem(STORAGE_KEY, String(deadline));
+}
+
+const ofertaHeader = document.getElementById('oferta-header');
+const countdownEl = document.getElementById('countdown');
+const appPrecioWrap = document.getElementById('cta-precio-wrap');
+const appBtn = document.getElementById('btn-comprar');
+const comboPrecioWrap = document.getElementById('combo-precio-wrap');
+const comboBtn = document.getElementById('btn-combo');
+
+function expirarOferta() {
+if (ofertaHeader) ofertaHeader.style.display = 'none';
+if (appPrecioWrap) appPrecioWrap.innerHTML = '<div class="cta-precio-ahora"><span>$</span>24.99 <span>USD</span></div>';
+if (appBtn) {
+appBtn.href = APP_HREF_NORMAL;
+appBtn.textContent = 'Quiero la App ahora →';
+}
+if (comboPrecioWrap) comboPrecioWrap.innerHTML = '<div class="cta-precio-ahora"><span>$</span>32.99 <span>USD</span></div>';
+if (comboBtn) comboBtn.textContent = 'Quiero el Combo →';
+}
+
+function tick() {
+const restante = deadline - Date.now();
+if (restante <= 0) {
+expirarOferta();
+clearInterval(timer);
+return;
+}
+const h = Math.floor(restante / 3600000);
+const m = Math.floor((restante % 3600000) / 60000);
+const s = Math.floor((restante % 60000) / 1000);
+if (countdownEl) {
+countdownEl.textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+}
+}
+
+if (appBtn) appBtn.href = APP_HREF_OFERTA;
+if (comboBtn) comboBtn.href = COMBO_HREF;
+tick();
+const timer = setInterval(tick, 1000);
 }
 </script>
 
