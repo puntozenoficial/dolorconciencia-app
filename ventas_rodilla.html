@@ -118,6 +118,13 @@
     .ex-card img:hover { transform: translateY(-4px); }
     .ex-label { font-size: 0.85rem; font-weight: 600; color: var(--text-mid); text-align: center; padding: 14px 10px 0; }
 
+    .videodemo { background: var(--cream-dark); }
+    .video-frame {
+      margin: 40px 0 0; max-width: 280px; border-radius: 36px; overflow: hidden;
+      box-shadow: var(--shadow-lg); border: 10px solid var(--forest);
+    }
+    .video-frame video { width: 100%; display: block; background: #000; }
+
     .inside { background: var(--white); }
     .inside-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
     .inside-item {
@@ -354,6 +361,20 @@
         <img src="assets/ventas_rodilla/mock_programa.png" alt="Vista general del programa de 14 días por fases" loading="lazy" />
         <p class="ex-label">Tu programa completo, fase por fase</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO DEMO -->
+<section class="videodemo">
+  <div class="container">
+    <p class="section-tag">Velo en acción</p>
+    <h2 class="section-title">Así se ve la app, en movimiento</h2>
+    <p class="section-body">Un recorrido real de la app: el ingreso, tu perfil de dolor personalizado, y los primeros ejercicios guiados con video y temporizador.</p>
+    <div class="video-frame">
+      <video controls preload="metadata" poster="assets/ventas_rodilla/video_poster.jpg" playsinline>
+        <source src="assets/ventas_rodilla/demo_app.mp4" type="video/mp4" />
+      </video>
     </div>
   </div>
 </section>
