@@ -605,8 +605,8 @@ color: #1a4a2e;
 
 <div class="progress-wrap">
 <div class="progress-info">
-<span>Pregunta <strong id="prog-num">1</strong> de 8</span>
-<span id="prog-pct">0% completado</span>
+<span id="prog-label">Elegí tu zona para empezar</span>
+<span id="prog-pct"></span>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 </div>
@@ -616,7 +616,20 @@ color: #1a4a2e;
 <!-- PREGUNTAS -->
 <div id="quiz">
 
-<div class="pregunta-card active" data-q="1">
+<!-- SELECTOR DE ZONA: ramifica el quiz a Espalda/Cuello o Rodilla/Cadera -->
+<div class="pregunta-card active" data-q="0">
+<div class="pregunta-num">Antes de empezar</div>
+<div class="pregunta-texto">¿Dónde es tu dolor principal?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Espalda y/o cuello</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Rodilla y/o cadera</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-siguiente" id="btn-sig-0">Comenzar →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="1" data-track="espalda">
 <div class="pregunta-num">Pregunta 01 / 08</div>
 <div class="pregunta-texto">¿Dónde sentís el dolor con más frecuencia?</div>
 <div class="opciones">
@@ -629,7 +642,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="2">
+<div class="pregunta-card" data-q="2" data-track="espalda">
 <div class="pregunta-num">Pregunta 02 / 08</div>
 <div class="pregunta-texto">¿Cuándo aparece o empeora el dolor?</div>
 <div class="opciones">
@@ -643,7 +656,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="3">
+<div class="pregunta-card" data-q="3" data-track="espalda">
 <div class="pregunta-num">Pregunta 03 / 08</div>
 <div class="pregunta-texto">¿Cómo describirías tu dolor?</div>
 <div class="opciones">
@@ -657,7 +670,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="4">
+<div class="pregunta-card" data-q="4" data-track="espalda">
 <div class="pregunta-num">Pregunta 04 / 08</div>
 <div class="pregunta-texto">¿Qué alivia (aunque sea temporalmente) el dolor?</div>
 <div class="opciones">
@@ -671,7 +684,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="5">
+<div class="pregunta-card" data-q="5" data-track="espalda">
 <div class="pregunta-num">Pregunta 05 / 08</div>
 <div class="pregunta-texto">¿Cuántas horas al día pasás sentada?</div>
 <div class="opciones">
@@ -685,7 +698,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="6">
+<div class="pregunta-card" data-q="6" data-track="espalda">
 <div class="pregunta-num">Pregunta 06 / 08</div>
 <div class="pregunta-texto">¿Qué intentaste sin resultados duraderos?</div>
 <div class="opciones">
@@ -699,7 +712,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="7">
+<div class="pregunta-card" data-q="7" data-track="espalda">
 <div class="pregunta-num">Pregunta 07 / 08</div>
 <div class="pregunta-texto">¿El dolor afecta tu sueño o descanso?</div>
 <div class="opciones">
@@ -713,7 +726,7 @@ color: #1a4a2e;
 </div>
 </div>
 
-<div class="pregunta-card" data-q="8">
+<div class="pregunta-card" data-q="8" data-track="espalda">
 <div class="pregunta-num">Pregunta 08 / 08</div>
 <div class="pregunta-texto">¿Cuánto tiempo llevás con este dolor?</div>
 <div class="opciones">
@@ -724,6 +737,118 @@ color: #1a4a2e;
 <div class="nav-btns">
 <button class="btn-anterior" onclick="goBack(8)">← Atrás</button>
 <button class="btn-siguiente" id="btn-sig-8">Ver mi resultado →</button>
+</div>
+</div>
+
+<!-- TRACK RODILLA Y CADERA -->
+<div class="pregunta-card" data-q="1" data-track="rodilla">
+<div class="pregunta-num">Pregunta 01 / 08</div>
+<div class="pregunta-texto">¿Dónde sentís el dolor con más frecuencia?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Rodilla (al subir/bajar escaleras o levantarte)</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Cadera (al caminar, girar o levantarte)</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Alternado: a veces rodilla, a veces cadera</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-siguiente" id="btn-sig-1-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="2" data-track="rodilla">
+<div class="pregunta-num">Pregunta 02 / 08</div>
+<div class="pregunta-texto">¿Cuándo aparece o empeora el dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Al subir o bajar escaleras</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Al levantarte después de estar sentada un rato</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Al caminar distancias largas o hacer actividad física</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(2)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-2-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="3" data-track="rodilla">
+<div class="pregunta-num">Pregunta 03 / 08</div>
+<div class="pregunta-texto">¿Cómo describirías tu dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Como un "crujido" o inestabilidad en la rodilla</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Profundo, en la ingle o el costado de la cadera</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Punzante y agudo, aparece de repente</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(3)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-3-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="4" data-track="rodilla">
+<div class="pregunta-num">Pregunta 04 / 08</div>
+<div class="pregunta-texto">¿Qué alivia (aunque sea temporalmente) el dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Descansar y evitar escaleras</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Estiramientos suaves de cadera</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Nada lo alivia de forma consistente</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(4)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-4-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="5" data-track="rodilla">
+<div class="pregunta-num">Pregunta 05 / 08</div>
+<div class="pregunta-texto">¿Evitás ciertos movimientos por miedo al dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Sí, evito sentadillas o arrodillarme</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Sí, evito caminar distancias largas</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">No evito movimientos, pero el dolor está siempre</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(5)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-5-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="6" data-track="rodilla">
+<div class="pregunta-num">Pregunta 06 / 08</div>
+<div class="pregunta-texto">¿Qué intentaste sin resultados duraderos?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Reposo y antiinflamatorios</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Plantillas, rodilleras o fajas</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Todo lo anterior y más, sin mejora real</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(6)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-6-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="7" data-track="rodilla">
+<div class="pregunta-num">Pregunta 07 / 08</div>
+<div class="pregunta-texto">¿El dolor afecta tu actividad diaria (caminar, escaleras, mandados)?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">A veces, en días de mucha actividad</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Sí, me cuesta hacer actividades simples</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Casi siempre, limita mi día a día</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(7)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-7-r">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="8" data-track="rodilla">
+<div class="pregunta-num">Pregunta 08 / 08</div>
+<div class="pregunta-texto">¿Cuánto tiempo llevás con este dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Menos de 6 meses</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Entre 6 meses y 2 años</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Más de 2 años (dolor crónico)</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(8)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-8-r">Ver mi resultado →</button>
 </div>
 </div>
 
@@ -765,6 +890,9 @@ color: #1a4a2e;
 <p>Contame tu caso por WhatsApp y te digo, en base a tu perfil, exactamente qué te conviene hacer ahora.</p>
 <a href="#" id="wa-link-top" class="btn-whatsapp" target="_blank" rel="noopener">Hablar con Majo por WhatsApp →</a>
 </div>
+
+<!-- MARKETING — TRACK ESPALDA Y CUELLO (28 días) -->
+<div id="marketing-espalda">
 
 <!-- EDUCACIÓN: POR QUÉ REEDUCAR (DATOS REALES) -->
 
@@ -914,6 +1042,140 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 
 </div>
 
+<!-- MARKETING — TRACK RODILLA Y CADERA (14 días) -->
+<div id="marketing-rodilla" style="display:none;">
+
+<!-- LIFESTYLE: foto real de pareja recuperando movilidad -->
+<div class="evidencia-card">
+<img src="assets/ventas_rodilla/matrimonio_estirando.png" alt="Pareja mayor estirando al aire libre, sin miedo a moverse" loading="lazy">
+<div class="evidencia-caption">Recuperar movilidad no es solo "no dolor" — es volver a caminar, viajar y disfrutar el tiempo con los tuyos <strong>sin miedo a moverte</strong>.</div>
+</div>
+
+<div class="educacion-card warning">
+<h3>⚠️ Lo que NO sabías sobre el dolor de rodilla y cadera</h3>
+<div class="stat-highlight"><span class="stat-num">22,9%</span><span class="stat-label">de las personas mayores de 40 años tiene algún grado de artrosis de rodilla, una de las principales causas de pérdida de movilidad al caminar y subir escaleras.</span></div>
+<p style="margin-bottom: 14px; font-weight: 600;">Los números son claros: ignorar el dolor ahora puede limitar tu independencia más adelante.</p>
+<ul>
+<li><strong>Cerca de 1 de cada 10 adultos mayores de 60 años</strong> tiene síntomas de artrosis, según estimaciones de la Organización Mundial de la Salud.</li>
+<li><strong>El dolor sin tratar</strong> hace que evites cada vez más movimiento — y ese desuso debilita aún más los músculos que protegen la articulación.</li>
+<li><strong>Sin un protocolo estructurado,</strong> el dolor progresa: ocasional → frecuente → limita actividades → miedo a moverte → menos fuerza → más dolor.</li>
+<li><strong>Tu sistema nervioso está aprendiendo AHORA mismo</strong> que ciertos movimientos son peligrosos. Cuanto más los evitás, más se lo confirmás a tu cerebro.</li>
+</ul>
+</div>
+
+<div class="educacion-card neurociencia">
+<h3>🧠 Por qué el miedo a moverte empeora el dolor (no es paranoia, es ciencia)</h3>
+<p>Cuando te duele la rodilla o la cadera, lo más natural es evitar el movimiento que te duele. Tiene sentido — pero ese mismo instinto, sostenido en el tiempo, es lo que perpetúa el problema.<br><br>
+<strong>El ciclo actual:</strong><br>
+• Cada vez que evitás moverte → los músculos que sostienen la articulación se debilitan más.<br>
+• Cada vez que el músculo es más débil → la articulación absorbe más impacto del que debería.<br>
+• Cada vez que duele más → evitás todavía más movimiento.<br><br>
+<strong>El resultado:</strong> un círculo donde el miedo y el desuso alimentan el dolor, en vez de protegerte de él.<br><br>
+<strong>La buena noticia (y es REAL):</strong> con el movimiento correcto, progresivo y guiado, ese ciclo se revierte. Los músculos que protegen tu rodilla y cadera pueden recuperar fuerza y estabilidad a cualquier edad.<br><br>
+<strong>El plazo:</strong> 14 días de reeducación consistente alcanzan para notar más estabilidad y menos dolor al caminar o subir escaleras. <strong>El acceso a la App, en cambio, es de por vida:</strong> una vez recuperado el patrón, la usás para mantenerlo o ajustarlo cuando quieras, sin límite de tiempo.
+</p>
+</div>
+
+<!-- EVIDENCIA VISUAL: Carlos haciendo el ejercicio guiado -->
+<div class="evidencia-card">
+<img src="assets/ventas_rodilla/carlos_sentadilla.png" alt="Carlos haciendo un ejercicio guiado de sentadilla con apoyo, siguiendo el protocolo paso a paso" loading="lazy">
+<div class="evidencia-caption">Ejercicios <strong>seguros y progresivos</strong>, con apoyo cuando lo necesitás — pensados para sumar fuerza sin forzar la articulación.</div>
+</div>
+
+<div class="educacion-card timeline">
+<h3>⏰ Esto es lo que pasa si esperás (timeline real)</h3>
+<ul>
+<li><strong>Hoy:</strong> Dolor ocasional al subir escaleras o levantarte. Crees que "es la edad" o que "ya va a pasar".</li>
+<li><strong>3-6 meses evitando moverte:</strong> Empezás a evitar actividades (caminar largo, agacharte, jugar con los nietos). Menos fuerza, más rigidez.</li>
+<li><strong>1-2 años sin cambio:</strong> Dolor más constante. Dependés de rodilleras, plantillas o analgésicos para funcionar en el día a día.</li>
+<li><strong>2+ años así:</strong> Pérdida significativa de movilidad e independencia. Ese punto es más difícil (no imposible, pero más difícil) de revertir.</li>
+<li><strong>La línea de corte es AHORA.</strong> Cuanto antes recuperes fuerza y movilidad, más fácil es mantenerlas. La diferencia entre actuar hoy vs. en 6 meses es ENORME.</li>
+</ul>
+</div>
+
+<!-- TESTIMONIOS REALES -->
+<div class="testimonios-card">
+<div class="testimonios-eyebrow">Esto dicen quienes ya lo probaron</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Llevaba meses evitando salir a caminar por miedo a ese pinchazo en la cadera. Esta guía no solo me dio ejercicios, sino que me enseñó por qué me dolía. Entender la neurociencia detrás del dolor cambió mi forma de moverme. ¡Ya estoy haciendo senderismo de nuevo sin miedo!</p>
+<div class="testimonio-autor">— Julián R., 48 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Al principio pensaba que una app no podía reemplazar la atención personalizada, pero me sorprendió la claridad de los videos y el seguimiento diario. Es como tener a un profesional explicándote los ejercicios en casa, paso a paso y sin complicaciones.</p>
+<div class="testimonio-autor">— Elena M., 55 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Mis rodillas se sentían "oxidadas" después de estar mucho tiempo sentada trabajando. El programa de 14 días fue el empujón que necesitaba para retomar hábitos saludables. Los "datos del día" me ayudaron a romper mitos que yo misma creía ciertos sobre el desgaste.</p>
+<div class="testimonio-autor">— Sofía T., 39 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Después de probar mil cosas, lo que más valoro de esta propuesta es el enfoque basado en evidencia. El registro diario de progreso me mantuvo motivado y enfocado en mis objetivos.</p>
+<div class="testimonio-autor">— Matías G., 42 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Lo que más me gustó fue el tono humano y el acompañamiento. Me ayudó a gestionar mis expectativas y a ganar confianza en que, con movimiento consciente, se puede vivir con mucha mejor calidad de vida.</p>
+<div class="testimonio-autor">— Lucía D., 52 años</div>
+</div>
+
+<div class="testimonios-nota">Testimonios reales de usuarios. Los resultados pueden variar según cada caso.</div>
+</div>
+
+<!-- VIDEO: la app por dentro -->
+<div class="app-video-card">
+<div class="video-eyebrow">Mirá por dentro</div>
+<h3>Esto es lo que vas a tener en tu celular</h3>
+<video src="assets/ventas_rodilla/demo_app.mp4" poster="assets/ventas_rodilla/video_poster.jpg" controls playsinline preload="metadata"></video>
+<p>Sin nada difícil ni complicado: rutinas guiadas paso a paso, seguimiento de tu progreso día a día y ejercicios pensados para tu perfil. Solo compromiso y ganas de moverte sin dolor.</p>
+</div>
+
+<!-- CTA: la App como protagonista -->
+<div class="cta-card">
+<div class="cta-eyebrow">Tu próximo paso</div>
+<h3>El único protocolo que trabaja la causa real: fuerza y movilidad, no solo el síntoma</h3>
+<p><strong>15 minutos al día.</strong> Notás los primeros cambios en la primera semana, y en 14 días tu cuerpo recupera un patrón de movimiento más seguro — de por vida. No es otra rutina genérica: es reeducación neuromuscular personalizada a tu perfil, con seguimiento día a día desde el celular.</p>
+
+<div class="cta-precio-wrap">
+<div class="cta-precio-ahora"><span>$</span>17.99 <span>USD</span></div>
+</div>
+<a href="https://pay.hotmart.com/O106487180B" class="btn-comprar" id="btn-comprar-r" target="_blank" rel="noopener">Quiero la App + Guía PDF de regalo →</a>
+</div>
+
+<!-- LO QUE REALMENTE ESTÁS COMPRANDO: 14 días vs. de por vida -->
+<div class="acceso-vida-card">
+<div class="acceso-vida-badge">⭐ Acceso de por vida</div>
+<p><strong>Importante:</strong> los 14 días son el tiempo que tu cuerpo necesita para recuperar fuerza y estabilidad — no es el tiempo que vas a poder usar la App. El acceso a la App <strong>no vence nunca</strong>: la tenés de por vida, para sostener el cambio, volver cuando la necesites y <strong>realmente transformar tu calidad de vida</strong> a largo plazo.</p>
+<div class="acceso-vida-split">
+<div class="mitad"><span class="num">14 días</span><span class="label">para recuperar fuerza y movilidad</span></div>
+<div class="signo">+</div>
+<div class="mitad"><span class="num">De por vida</span><span class="label">acceso a la App, para usarla siempre</span></div>
+</div>
+</div>
+
+<!-- CIERRE: puente final a WhatsApp -->
+<div class="whatsapp-card">
+<h3>🦵 Ahora que conocés tu mapa...</h3>
+<p>El siguiente paso es saber cómo recuperar fuerza y movilidad para que el dolor no vuelva. Escribime a WhatsApp y te digo por dónde empezar.</p>
+<a href="#" id="wa-link-r" class="btn-whatsapp" target="_blank" rel="noopener">Escribirle a Majo →</a>
+</div>
+
+<div class="cta-footnote">
+¿Preferís empezar solo con la Guía en PDF? <a href="https://pay.hotmart.com/G106487989R" id="btn-pdf-r" target="_blank" rel="noopener">Comprala acá por $9.99 →</a>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <div class="quiz-footer">
@@ -923,11 +1185,12 @@ Este contenido es educativo y no reemplaza la consulta médica profesional.
 
 <script>
 const respuestas = {};
-let preguntaActual = 1;
+let preguntaActual = 0;
+let zona = null;
 const totalPreguntas = 8;
 const WHATSAPP_NUM = '5492494205535';
 
-const perfiles = {
+const perfilesEspalda = {
 A: {
 emoji: '🟡',
 tag: 'Perfil Postural',
@@ -978,8 +1241,78 @@ urgencia: 'Llevás tiempo con esto y ya probaste de todo — por eso necesitás 
 }
 };
 
-// Inicializar botones
-document.querySelectorAll('.pregunta-card').forEach(card => {
+const perfilesRodilla = {
+A: {
+emoji: '🟡',
+tag: 'Perfil de Sobrecarga',
+tagColor: '#f0b429',
+tagBg: '#fff8e1',
+nombre: 'Tu dolor es principalmente por sobrecarga articular',
+subtitulo: 'La rodilla está cargando un desequilibrio que no le corresponde',
+desc: 'Los músculos que deberían estabilizar tu rodilla (cuádriceps, glúteos) se debilitaron, y la articulación termina absorbiendo un impacto que no debería. Por eso duele al subir escaleras o levantarte: no es que la rodilla esté "gastada", es que perdió su sostén muscular.',
+causas: [
+'Usaste reposo cuando el cuerpo necesitaba fortalecer los músculos de sostén',
+'Te enfocaste en la rodilla sin trabajar cadera y glúteos, que la protegen',
+'La causa real (déficit de fuerza y estabilidad) nunca fue tratada'
+],
+inicio: 'Tu prioridad es activar y fortalecer los músculos que protegen tu rodilla — con ejercicios seguros y progresivos de solo 15 minutos al día. La mayoría nota menos molestias al subir escaleras ya en la primera semana.',
+urgencia: 'Este tipo de dolor se subestima porque "va y viene" — pero sin corregirlo, tiende a empeorar y limitar cada vez más tus actividades. La buena noticia: fortaleciendo los músculos correctos, se puede revertir en 14 días.'
+},
+B: {
+emoji: '🔵',
+tag: 'Perfil de Movilidad',
+tagColor: '#2d7a4f',
+tagBg: '#edf7f1',
+nombre: 'Tu dolor es principalmente de movilidad de cadera',
+subtitulo: 'Rigidez que limita tu paso y tu rango de movimiento',
+desc: 'Tu cadera perdió movilidad por falta de estiramiento y trabajo activo, y compensa con tensión en zonas que no están diseñadas para eso. El resultado: dolor profundo al caminar, girar o levantarte, y una sensación de "rigidez" que no se va con reposo.',
+causas: [
+'Las plantillas y rodilleras alivian síntomas, pero no la causa',
+'La rigidez de cadera necesita movilidad activa, no solo descanso',
+'Sin trabajo específico de cadera, la compensación se repite cada día'
+],
+inicio: 'Tu prioridad es recuperar movilidad de cadera con movimientos guiados y progresivos — 15 minutos al día alcanzan para notar la diferencia. Tu protocolo incluye una secuencia pensada exactamente para esto.',
+urgencia: 'Esta rigidez no se va sola, y si se deja así, suele derivar en compensaciones que duelen todavía más (rodilla, zona lumbar). La buena noticia: se puede mejorar en 14 días trabajando la movilidad real.'
+},
+C: {
+emoji: '🟢',
+tag: 'Perfil Crónico',
+tagColor: '#276749',
+tagBg: '#f0fdf4',
+nombre: 'Tu dolor de rodilla y cadera es crónico y multifactorial',
+subtitulo: 'Necesitás un abordaje progresivo e integral',
+desc: 'Llevás tiempo conviviendo con este dolor y probaste de todo sin resultados que duren. Eso no significa que no tenga solución — significa que necesitás algo que trabaje fuerza, movilidad y tus hábitos diarios juntos y de a poco.',
+causas: [
+'Los tratamientos sueltos (rodilleras, plantillas, antiinflamatorios) no cambian la causa de fondo',
+'Un dolor de tanto tiempo necesita que tu cuerpo reaprenda a moverse sin dolor',
+'Faltó un protocolo progresivo que vaya sumando, semana a semana'
+],
+inicio: 'Tu prioridad es un protocolo de 14 días que empiece desde cero y vaya sumando — 15 minutos al día, sin golpes de efecto. Pensado exactamente para tu historia: dolor de mucho tiempo, que necesita ver progreso real desde la primera semana.',
+urgencia: 'Llevás tiempo con esto y ya probaste de todo — por eso necesitás algo distinto. Cuanto más pasa, más cuesta revertirlo. Con el protocolo correcto, los primeros cambios reales se notan ya en la primera semana, y en 14 días el patrón cambia en serio.'
+}
+};
+
+// Selector de zona (paso 0): ramifica el resto del quiz
+const zonaCard = document.querySelector('[data-q="0"]');
+zonaCard.querySelectorAll('.opcion-btn').forEach(btn => {
+btn.addEventListener('click', () => {
+zonaCard.querySelectorAll('.opcion-btn').forEach(b => b.classList.remove('selected'));
+btn.classList.add('selected');
+zona = (btn.dataset.value === 'A') ? 'espalda' : 'rodilla';
+zonaCard.querySelector('.btn-siguiente').classList.add('enabled');
+});
+});
+zonaCard.querySelector('.btn-siguiente').addEventListener('click', () => {
+if (!zona) return;
+zonaCard.classList.remove('active');
+document.querySelector(`[data-q="1"][data-track="${zona}"]`).classList.add('active');
+preguntaActual = 1;
+updateProgress();
+window.scrollTo(0, 0);
+});
+
+// Inicializar botones de las preguntas 1-8 (ambos tracks)
+document.querySelectorAll('.pregunta-card[data-track]').forEach(card => {
 const q = card.dataset.q;
 const btnSig = card.querySelector('.btn-siguiente');
 card.querySelectorAll('.opcion-btn').forEach(btn => {
@@ -1001,29 +1334,44 @@ goNext(parseInt(q));
 });
 
 function goNext(current) {
-document.querySelector(`[data-q="${current}"]`).classList.remove('active');
-document.querySelector(`[data-q="${current + 1}"]`).classList.add('active');
+document.querySelector(`[data-q="${current}"][data-track="${zona}"]`).classList.remove('active');
+document.querySelector(`[data-q="${current + 1}"][data-track="${zona}"]`).classList.add('active');
 preguntaActual = current + 1;
 updateProgress();
 window.scrollTo(0, 0);
 }
 
 function goBack(current) {
-document.querySelector(`[data-q="${current}"]`).classList.remove('active');
-document.querySelector(`[data-q="${current - 1}"]`).classList.add('active');
+document.querySelector(`[data-q="${current}"][data-track="${zona}"]`).classList.remove('active');
+if (current === 1) {
+document.querySelector('[data-q="0"]').classList.add('active');
+preguntaActual = 0;
+} else {
+document.querySelector(`[data-q="${current - 1}"][data-track="${zona}"]`).classList.add('active');
 preguntaActual = current - 1;
+}
 updateProgress();
 window.scrollTo(0, 0);
 }
 
 function updateProgress() {
+const label = document.getElementById('prog-label');
+const pctEl = document.getElementById('prog-pct');
+if (preguntaActual === 0) {
+document.getElementById('progress-fill').style.width = '0%';
+label.textContent = 'Elegí tu zona para empezar';
+pctEl.textContent = '';
+return;
+}
 const pct = Math.round(((preguntaActual - 1) / totalPreguntas) * 100);
 document.getElementById('progress-fill').style.width = pct + '%';
-document.getElementById('prog-num').textContent = preguntaActual;
-document.getElementById('prog-pct').textContent = pct + '% completado';
+label.innerHTML = 'Pregunta <strong>' + preguntaActual + '</strong> de ' + totalPreguntas;
+pctEl.textContent = pct + '% completado';
 }
 
 function mostrarResultado() {
+const perfiles = (zona === 'rodilla') ? perfilesRodilla : perfilesEspalda;
+
 // Contar respuestas
 const conteo = { A: 0, B: 0, C: 0 };
 Object.values(respuestas).forEach(v => conteo[v]++);
@@ -1056,30 +1404,39 @@ li.textContent = c;
 causasList.appendChild(li);
 });
 
+// Mostrar el bloque de marketing correspondiente a la zona elegida
+document.getElementById('marketing-espalda').style.display = (zona === 'rodilla') ? 'none' : 'block';
+document.getElementById('marketing-rodilla').style.display = (zona === 'rodilla') ? 'block' : 'none';
+
 // Armar link de WhatsApp con el perfil ya cargado
 const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero que analices mi resultado y me digas qué me conviene 🙂';
 const waHref = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
-document.getElementById('wa-link').href = waHref;
 const waLinkTop = document.getElementById('wa-link-top');
 if (waLinkTop) waLinkTop.href = waHref;
+const waLinkEspalda = document.getElementById('wa-link');
+if (waLinkEspalda) waLinkEspalda.href = waHref;
+const waLinkRodilla = document.getElementById('wa-link-r');
+if (waLinkRodilla) waLinkRodilla.href = waHref;
 
 // Pixel: el quiz se completó y mostró un resultado (evento Lead)
 if (typeof fbq === 'function') {
-fbq('track', 'Lead', {content_name: p.tag});
+fbq('track', 'Lead', {content_name: p.tag, content_category: zona});
 }
 
 // Mostrar
 document.getElementById('quiz').style.display = 'none';
 document.getElementById('resultado').style.display = 'block';
 document.getElementById('progress-fill').style.width = '100%';
-document.getElementById('prog-num').textContent = '8';
+document.getElementById('prog-label').innerHTML = 'Pregunta <strong>' + totalPreguntas + '</strong> de ' + totalPreguntas;
 document.getElementById('prog-pct').textContent = '100% completado';
 window.scrollTo(0, 0);
 
+if (zona !== 'rodilla') {
 iniciarCountdown();
 }
+}
 
-// Oferta -20% por 24hs (App + Combo): el plazo arranca la primera vez que ESTE lead
+// Oferta -20% por 24hs (App + Combo, solo track Espalda/Cuello): el plazo arranca la primera vez que ESTE lead
 // ve su resultado (queda guardado en su navegador; no se reinicia en cada visita ni para otro visitante).
 function iniciarCountdown() {
 const STORAGE_KEY = 'dcc_oferta_deadline';
@@ -1133,7 +1490,7 @@ const timer = setInterval(tick, 1000);
 }
 
 // Pixel: trackear clics en los botones de compra y de WhatsApp
-['btn-comprar', 'btn-combo', 'btn-pdf'].forEach(function(id) {
+['btn-comprar', 'btn-combo', 'btn-pdf', 'btn-comprar-r', 'btn-pdf-r'].forEach(function(id) {
 	const el = document.getElementById(id);
 	if (el) {
 		el.addEventListener('click', function() {
@@ -1141,7 +1498,7 @@ const timer = setInterval(tick, 1000);
 		});
 	}
 });
-['wa-link', 'wa-link-top'].forEach(function(id) {
+['wa-link', 'wa-link-top', 'wa-link-r'].forEach(function(id) {
 	const el = document.getElementById(id);
 	if (el) {
 		el.addEventListener('click', function() {
