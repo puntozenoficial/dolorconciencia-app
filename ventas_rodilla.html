@@ -106,14 +106,17 @@
 
     .screenshots { background: var(--cream); }
     .ex-grid {
-      margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;
+      margin-top: 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px;
     }
     .ex-card {
-      background: var(--white); border-radius: 20px; overflow: hidden;
-      border: 1px solid var(--border); box-shadow: var(--shadow);
+      background: transparent; display: flex; flex-direction: column; align-items: center;
     }
-    .ex-card img { width: 100%; display: block; background: #fff; }
-    .ex-label { font-size: 0.85rem; font-weight: 600; color: var(--text-mid); text-align: center; padding: 12px 10px; }
+    .ex-card img {
+      width: 100%; max-width: 230px; display: block; border-radius: 32px;
+      box-shadow: var(--shadow-lg); transition: transform 0.25s;
+    }
+    .ex-card img:hover { transform: translateY(-4px); }
+    .ex-label { font-size: 0.85rem; font-weight: 600; color: var(--text-mid); text-align: center; padding: 14px 10px 0; }
 
     .inside { background: var(--white); }
     .inside-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
@@ -320,28 +323,36 @@
   </div>
 </section>
 
-<!-- EJERCICIOS REALES -->
+<!-- PANTALLAS REALES DE LA APP -->
 <section class="screenshots">
   <div class="container">
     <p class="section-tag">Dentro de la app</p>
-    <h2 class="section-title">Ejercicios reales del protocolo</h2>
-    <p class="section-body">Así son algunos de los movimientos guiados que vas a encontrar día a día — explicados paso a paso, sin equipamiento complicado.</p>
+    <h2 class="section-title">Así es la app por dentro</h2>
+    <p class="section-body">Capturas reales de la app: tu progreso del día, los ejercicios guiados con video, y la sensación de completar cada jornada.</p>
     <div class="ex-grid">
       <div class="ex-card">
-        <img src="assets/ventas_rodilla/ej_sentadilla.png" alt="Sentadilla parcial asistida con silla" loading="lazy" />
-        <p class="ex-label">Sentadilla parcial asistida</p>
+        <img src="assets/ventas_rodilla/mock_home_dashboard.png" alt="Pantalla de inicio con progreso del día y check-in de dolor" loading="lazy" />
+        <p class="ex-label">Tu progreso, día a día</p>
       </div>
       <div class="ex-card">
-        <img src="assets/ventas_rodilla/ej_puente.png" alt="Puente a una pierna" loading="lazy" />
-        <p class="ex-label">Puente a una pierna</p>
+        <img src="assets/ventas_rodilla/mock_ejercicio_sentadilla.png" alt="Ejercicio guiado con video demostrativo y temporizador" loading="lazy" />
+        <p class="ex-label">Ejercicios con video guiado</p>
       </div>
       <div class="ex-card">
-        <img src="assets/ventas_rodilla/ej_equilibrio.png" alt="Equilibrio a una pierna" loading="lazy" />
-        <p class="ex-label">Equilibrio y control</p>
+        <img src="assets/ventas_rodilla/mock_ejercicio_movilidad.png" alt="Ejercicio de movilidad de cadera con video real de kinesiología" loading="lazy" />
+        <p class="ex-label">Demostraciones reales</p>
       </div>
       <div class="ex-card">
-        <img src="assets/ventas_rodilla/ej_wallsit.png" alt="Wall sit isométrico" loading="lazy" />
-        <p class="ex-label">Wall sit isométrico</p>
+        <img src="assets/ventas_rodilla/mock_dia_completado.png" alt="Pantalla de día completado con celebración" loading="lazy" />
+        <p class="ex-label">Celebrá cada día completado</p>
+      </div>
+      <div class="ex-card">
+        <img src="assets/ventas_rodilla/mock_trivia.png" alt="Trivia interactiva para reforzar lo aprendido" loading="lazy" />
+        <p class="ex-label">Trivias para reforzar lo aprendido</p>
+      </div>
+      <div class="ex-card">
+        <img src="assets/ventas_rodilla/mock_programa.png" alt="Vista general del programa de 14 días por fases" loading="lazy" />
+        <p class="ex-label">Tu programa completo, fase por fase</p>
       </div>
     </div>
   </div>
