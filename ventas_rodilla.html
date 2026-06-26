@@ -215,6 +215,9 @@
     .btn-green { display: block; text-align: center; background: var(--green); color: #fff; padding: 16px; border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: all 0.2s; }
     .btn-green:hover { background: var(--green-dark); }
     .secure-note { margin-top: 18px; font-size: 0.78rem; color: var(--text-light); }
+    .guarantee { margin-top: 24px; padding: 18px 20px; background: #edf7f1; border-radius: 14px; border: 1px solid #a8d8b8; }
+    .guarantee strong { display: block; font-size: 0.9rem; color: var(--green-dark); margin-bottom: 4px; }
+    .guarantee p { font-size: 0.81rem; color: #3a7a56; }
 
     .faq { background: var(--white); }
     .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 12px; }
@@ -278,7 +281,7 @@
     <p class="hero-sub">Un programa guiado, día a día, con perfil de dolor personalizado, que te explica por qué duele y qué hacer al respecto. Basado en la neurociencia del dolor.</p>
     <div class="hero-btns">
       <a href="https://pay.hotmart.com/O106487180B" class="btn-primary" onclick="fbq('track','InitiateCheckout');">Quiero mi App + Guía PDF de regalo — USD 17,99</a>
-      <span class="hero-note">🔒 Pago seguro vía Hotmart · Acceso inmediato</span>
+      <span class="hero-note">🔒 Pago seguro vía Hotmart · Garantía 7 días · Acceso inmediato</span>
     </div>
   </div>
 </section>
@@ -602,6 +605,10 @@
         </ul>
         <a href="https://pay.hotmart.com/O106487180B" class="btn-green" onclick="fbq('track','InitiateCheckout');">Quiero empezar ahora</a>
         <p class="secure-note">🔒 Compra 100% segura, procesada por Hotmart</p>
+        <div class="guarantee">
+          <strong>🛡️ Garantía de 7 días</strong>
+          <p>Si en los primeros 7 días no estás satisfecha/o, te devolvemos el 100%. Sin preguntas.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -649,6 +656,11 @@
         <div class="faq-a">Apenas se aprueba tu compra, te llega un mail con tu código de acceso único. Si no lo ves en unos minutos, revisá spam o promociones. Con ese código entrás directo a la app.</div>
       </div>
 
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">¿Qué pasa si no funciona para mí?<span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Tenés 7 días de garantía. Si no notás ningún cambio, te devolvemos el 100% de tu dinero. Sin preguntas.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -660,7 +672,7 @@
     <p>Esto no se termina a los 14 días: es la base de una rutina que te queda de por vida. Empezá hoy, desde tu casa.</p>
     <div class="hero-btns">
       <a href="https://pay.hotmart.com/O106487180B" class="btn-primary" onclick="fbq('track','InitiateCheckout');">Quiero mi App + Guía PDF de regalo — USD 17,99</a>
-      <span class="hero-note">🔒 Pago seguro vía Hotmart · Acceso inmediato</span>
+      <span class="hero-note">🔒 Pago seguro vía Hotmart · Garantía 7 días · Acceso inmediato</span>
     </div>
   </div>
 </section>
