@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu Mapa del Dolor | DolorConCiencia</title>
+<title>Evaluá tu protocolo | DolorConCiencia</title>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -597,10 +597,9 @@ color: #1a4a2e;
 <body>
 
 <div class="header">
-<div class="header-badge">🎁 Tu bonus exclusivo</div>
 <div class="header-brand">DolorConCiencia</div>
-<h1>Tu <span>Mapa del Dolor</span><br>Personalizado</h1>
-<p>8 preguntas · 2 minutos · Descubrí exactamente qué tipo de dolor tenés y por qué no mejora</p>
+<h1>Evaluá si nuestros protocolos<br><span>se adaptan a tus necesidades</span></h1>
+<p>8 preguntas · 2 minutos · Descubrí qué protocolo de movimiento es el indicado para vos</p>
 </div>
 
 <div class="progress-wrap">
@@ -623,7 +622,26 @@ color: #1a4a2e;
 <div class="opciones">
 <button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Espalda y/o cuello</div></button>
 <button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Rodilla y/o cadera</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Ambos — tengo dolor en las dos zonas</div></button>
 </div>
+
+<!-- Preview apps -->
+<div style="display:flex;gap:10px;margin:20px 0 4px;justify-content:center;">
+  <div style="text-align:center;flex:1;max-width:120px;">
+    <img src="Imagenes%20de%20la%20app/CAPTURA%20DE%20LA%20APP/WhatsApp%20Image%202026-06-09%20at%203.18.31%20PM%20(1).jpeg" alt="App DolorConCiencia" style="width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);">
+    <div style="font-size:11px;color:#2d7a4f;font-weight:700;margin-top:6px;">Cuello & Espalda</div>
+  </div>
+  <div style="text-align:center;flex:1;max-width:120px;">
+    <img src="Imagenes%20de%20la%20app/CAPTURA%20DE%20LA%20APP/WhatsApp%20Image%202026-06-09%20at%203.18.31%20PM%20(2).jpeg" alt="App DolorConCiencia" style="width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);">
+    <div style="font-size:11px;color:#2d7a4f;font-weight:700;margin-top:6px;">Rodilla & Cadera</div>
+  </div>
+  <div style="text-align:center;flex:1;max-width:120px;">
+    <img src="Imagenes%20de%20la%20app/CAPTURA%20DE%20LA%20APP/WhatsApp%20Image%202026-06-09%20at%203.18.31%20PM%20(3).jpeg" alt="App DolorConCiencia" style="width:100%;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,0.13);">
+    <div style="font-size:11px;color:#2d7a4f;font-weight:700;margin-top:6px;">Seguimiento diario</div>
+  </div>
+</div>
+<div style="text-align:center;font-size:11px;color:#999;margin-bottom:4px;">Así se ven los protocolos en la app</div>
+
 <div class="nav-btns">
 <button class="btn-siguiente" id="btn-sig-0">Comenzar →</button>
 </div>
@@ -854,6 +872,121 @@ color: #1a4a2e;
 
 </div>
 
+<!-- PREGUNTAS TRACK AMBOS (Espalda + Rodilla) -->
+<div class="pregunta-card" data-q="1" data-track="ambos">
+<div class="pregunta-num">Pregunta 01 / 08</div>
+<div class="pregunta-texto">¿Cuál zona te genera más urgencia de mejorar?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Espalda y/o cuello — es la que más me limita en el día</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Rodilla y/o cadera — es la que más me limita al moverme</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Las dos me molestan igual, no puedo elegir una</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(1)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-1-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="2" data-track="ambos">
+<div class="pregunta-num">Pregunta 02 / 08</div>
+<div class="pregunta-texto">¿Cuándo sentís más el dolor?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Trabajando o sentada — cuello y espalda se tensan</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Al caminar, subir escaleras o levantarme — rodilla o cadera</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">En los dos momentos, dependiendo del día</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(2)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-2-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="3" data-track="ambos">
+<div class="pregunta-num">Pregunta 03 / 08</div>
+<div class="pregunta-texto">¿Cómo describirías el dolor más frecuente?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Tensión, contracturas y rigidez (cuello, nuca, lumbar)</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Crujidos, inestabilidad o dolor profundo (rodilla, cadera)</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Una mezcla de los dos tipos</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(3)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-3-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="4" data-track="ambos">
+<div class="pregunta-num">Pregunta 04 / 08</div>
+<div class="pregunta-texto">¿Cuántas horas al día estás sentada o en la misma posición?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Más de 6 horas (trabajo o estudio)</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Entre 3 y 6 horas</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Menos de 3 horas, pero igual me duele en las dos zonas</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(4)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-4-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="5" data-track="ambos">
+<div class="pregunta-num">Pregunta 05 / 08</div>
+<div class="pregunta-texto">¿Qué intentaste sin resultados duraderos?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Reposo, antiinflamatorios y masajes</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Plantillas, rodilleras o kinesiología</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Todo lo anterior y más, sin mejora real en ninguna zona</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(5)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-5-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="6" data-track="ambos">
+<div class="pregunta-num">Pregunta 06 / 08</div>
+<div class="pregunta-texto">¿El dolor afecta tu descanso o tu sueño?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">A veces, en días de mucha actividad</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Sí, me cuesta encontrar posición para dormir</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Casi siempre, el dolor me despierta o me impide descansar</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(6)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-6-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="7" data-track="ambos">
+<div class="pregunta-num">Pregunta 07 / 08</div>
+<div class="pregunta-texto">¿Cuánto tiempo llevás con dolores en estas zonas?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">Menos de 6 meses</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">Entre 6 meses y 2 años</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Más de 2 años (dolor crónico en varias zonas)</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(7)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-7-ab">Siguiente →</button>
+</div>
+</div>
+
+<div class="pregunta-card" data-q="8" data-track="ambos">
+<div class="pregunta-num">Pregunta 08 / 08</div>
+<div class="pregunta-texto">¿Qué limitación te molesta más en el día a día?</div>
+<div class="opciones">
+<button class="opcion-btn" data-value="A"><div class="opcion-letra">A</div><div class="opcion-texto">No poder estar cómoda sentada o parada por mucho tiempo</div></button>
+<button class="opcion-btn" data-value="B"><div class="opcion-letra">B</div><div class="opcion-texto">No poder caminar distancias largas ni subir escaleras sin dolor</div></button>
+<button class="opcion-btn" data-value="C"><div class="opcion-letra">C</div><div class="opcion-texto">Las dos me limitan por igual en el día a día</div></button>
+</div>
+<div class="nav-btns">
+<button class="btn-anterior" onclick="goBack(8)">← Atrás</button>
+<button class="btn-siguiente" id="btn-sig-8-ab">Ver mi resultado →</button>
+</div>
+</div>
+
+<!-- /TRACK AMBOS -->
+
 <!-- RESULTADO -->
 <div id="resultado">
 
@@ -884,59 +1017,23 @@ color: #1a4a2e;
 <p id="res-urgencia"></p>
 </div>
 
-<!-- CTA TEMPRANO: puente directo a WhatsApp apenas ve su resultado -->
-<div class="whatsapp-card">
-<h3>💬 Quiero que María José analice mi resultado</h3>
-<p>Contame tu caso por WhatsApp y te digo, en base a tu perfil, exactamente qué te conviene hacer ahora.</p>
-<a href="#" id="wa-link-top" class="btn-whatsapp" target="_blank" rel="noopener">Hablar con Majo por WhatsApp →</a>
-</div>
-
 <!-- MARKETING — TRACK ESPALDA Y CUELLO (28 días) -->
 <div id="marketing-espalda">
 
 <!-- EDUCACIÓN: POR QUÉ REEDUCAR (DATOS REALES) -->
 
-<div class="educacion-card warning">
-<h3>⚠️ Lo que NO sabías sobre el dolor de espalda y cuello</h3>
-<div class="stat-highlight"><span class="stat-num">Top 6</span><span class="stat-label">El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo — más que los accidentes de tránsito.</span></div>
-<p style="margin-bottom: 14px; font-weight: 600;">Los números son claros: ignorar el dolor ahora puede arruinar tu vida más adelante.</p>
-<ul>
-<li><strong>7 de cada 10 jóvenes</strong> con dolor de espalda lo siguen padeciendo en la edad adulta si no lo tratan a tiempo.</li>
-<li><strong>1 de cada 4 universitarios</strong> tiene dolor de cuello o espalda crónico — y muchos todavía creen que "desaparece solo".</li>
-<li><strong>Sin tratamiento estructurado,</strong> el dolor progresa: intermitente → frecuente → crónico → cambios estructurales → limitaciones permanentes.</li>
-<li><strong>Tu sistema nervioso está aprendiendo AHORA mismo</strong> que el dolor es "normal". Cada día que lo normalizas, le enseñas a tu cerebro que está bien vivir así.</li>
-</ul>
-</div>
-
-<div class="educacion-card neurociencia">
-<h3>🧠 Por qué tu cerebro necesita reeducarse (no es paranoia, es ciencia)</h3>
-<p>Tu cerebro es un órgano de aprendizaje. Y justo ahora está en modo "aprender a vivir con dolor".<br><br>
-<strong>El ciclo actual:</strong><br>
-• Cada vez que duele → tu sistema nervioso refuerza el patrón de dolor.<br>
-• Cada vez que descansas → le dices a tu cuerpo que el movimiento es peligroso.<br>
-• Cada analgésico que tomas sin cambiar el patrón → das más combustible al ciclo de dolor automático.<br><br>
-<strong>El resultado:</strong> tu cerebro entiende que el dolor es NORMAL y lo perpetúa automáticamente. Es como estar atrapado en un loop.<br><br>
-<strong>La buena noticia (y es REAL):</strong> la neuroplasticidad funciona en ambas direcciones. El mismo mecanismo que te enseñó a doler, puede enseñarte a NO doler. Tu sistema nervioso puede APRENDER a vivir sin dolor.<br><br>
-<strong>El plazo:</strong> 28 días de reeducación consistente cambian el patrón de forma permanente. Tu sistema nervioso aprende que el movimiento es seguro, que la postura correcta es el nuevo "normal", que la vida sin dolor es posible.<br><br>
-Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso necesita para reaprender. <strong>El acceso a la App, en cambio, es de por vida:</strong> una vez reeducado el patrón, la usás para mantenerlo, repetirlo o ajustarlo cuando quieras, sin límite de tiempo.
-</p>
-</div>
-
-<!-- EVIDENCIA VISUAL: el enfoque tradicional vs. el sistema nervioso -->
+<!-- EVIDENCIA VISUAL -->
 <div class="evidencia-card">
-<img src="imagen-quiz-mapa-dolor-optimizada.jpg" alt="Rutina tradicional tachada — la clave está en el sistema nervioso, no en repetir ejercicios al azar" loading="lazy">
-<div class="evidencia-caption">Durante años te enseñaron a repetir la misma rutina de ejercicios genéricos, sin mirar la causa real. <strong>La clave olvidada es tu sistema nervioso</strong> — y es exactamente lo que tu protocolo personalizado sí tiene en cuenta.</div>
+<img src="imagen-quiz-mapa-dolor-optimizada.jpg" alt="Rutina tradicional tachada — la clave está en el movimiento correcto, no en repetir ejercicios al azar" loading="lazy">
+<div class="evidencia-caption">Durante años te enseñaron a repetir la misma rutina de ejercicios genéricos, sin mirar la causa real. <strong>La clave olvidada es el movimiento correcto, progresivo y personalizado</strong> — y es exactamente lo que tu protocolo sí tiene en cuenta.</div>
 </div>
 
-<div class="educacion-card timeline">
-<h3>⏰ Esto es lo que pasa si esperas (timeline real)</h3>
-<ul>
-<li><strong>Hoy:</strong> Dolor intermitente. Aparece y desaparece. Crees que "va a pasar".</li>
-<li><strong>3-6 meses normalizándolo:</strong> Dolor más frecuente. Menos días sin molestias. Empiezas a limitar actividades.</li>
-<li><strong>1-2 años sin cambio:</strong> Dolor crónico instalado. Cambios visibles en tu postura. Debilidad muscular evidente. Limitaciones en el trabajo/deporte/vida normal.</li>
-<li><strong>2+ años así:</strong> Cambios estructurales en discos y articulaciones. Ese punto es difícil (no imposible, pero difícil) de revertir completamente.</li>
-<li><strong>La línea de corte es AHORA.</strong> Cuanto antes cambies el patrón, más fácil es revertirlo. La diferencia entre actuar hoy vs. en 6 meses es ENORME.</li>
-</ul>
+<!-- MECANISMO: por qué persiste el dolor y por qué el protocolo lo revierte (un solo mensaje, no tres) -->
+<div class="educacion-card neurociencia">
+<h3>🧠 Por qué el dolor de espalda y cuello no se va solo (aunque hayas probado de todo)</h3>
+<div class="stat-highlight"><span class="stat-num">Top 6</span><span class="stat-label">El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo — más que los accidentes de tránsito.</span></div>
+<p>El problema no son tus músculos ni tus huesos: es el patrón de movimiento que tu cuerpo aprendió para protegerse, y que ahora ya no sabe cómo apagar. Cada vez que duele, evitás moverte; cada vez que evitás moverte, le confirmás al cuerpo que moverse es peligroso — y con el tiempo, el dolor se vuelve "normal".<br><br>
+<strong>La buena noticia (y es real):</strong> ese ciclo se corta con el estímulo correcto — movimiento progresivo y guiado, no reposo ni estiramientos genéricos al azar. Es el mismo cuerpo que aprendió a doler el que puede aprender a moverse sin dolor.</p>
 </div>
 
 <!-- TESTIMONIOS REALES -->
@@ -947,18 +1044,6 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 <div class="testimonio-stars">★★★★★</div>
 <p>Por fin entendí por qué me dolía, y eso ya fue un cambio enorme. Ahora termino 9 horas frente al monitor sin ese nudo insoportable entre los omóplatos. Todavía no lo puedo creer.</p>
 <div class="testimonio-autor">— Carlos, Abogado · 9 hs/día frente a la pantalla</div>
-</div>
-
-<div class="testimonio">
-<div class="testimonio-stars">★★★★★</div>
-<p>Pasé de un dolor insoportable a terminar la semana casi sin molestias. Solo 15 minutos en casa. Hay dos ejercicios específicos que me dieron una estabilidad que no sabía que me faltaba.</p>
-<div class="testimonio-autor">— Paola, Administrativa</div>
-</div>
-
-<div class="testimonio">
-<div class="testimonio-stars">★★★★★</div>
-<p>Era escéptico con las apps de salud, pero esta me sorprendió por lo práctica que es. Las notificaciones te sacan de la rutina automática y te hacen estirar un poco. Mi espalda me lo agradece al final de la jornada.</p>
-<div class="testimonio-autor">— Martín, Atención al cliente · 55 años</div>
 </div>
 
 <div class="testimonio">
@@ -984,44 +1069,36 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 <p>Sin nada difícil ni complicado: rutinas guiadas paso a paso, seguimiento de tu progreso día a día y ejercicios pensados para tu perfil. Solo compromiso y ganas de que no duela más.</p>
 </div>
 
-<!-- OFERTA: banner de urgencia compartido (App + Combo) -->
-<div class="oferta-header" id="oferta-header">
-<div class="oferta-badge">🔥 Descuento por tiempo limitado — Solo por 24 horas</div>
-<div class="oferta-timer">Termina en <span id="countdown">24:00:00</span></div>
-</div>
-
 <!-- CTA: la App como protagonista -->
 <div class="cta-card">
 <div class="cta-eyebrow">Tu próximo paso</div>
-<h3>El único protocolo que trabaja la causa real: tu sistema nervioso</h3>
-<p><strong>15 minutos al día.</strong> Notás los primeros cambios en la primera semana, y en 28 días tu cuerpo aprende un patrón nuevo — de por vida. No es otra rutina genérica de estiramientos: es reeducación neuromuscular personalizada a tu perfil, con seguimiento día a día desde el celular.</p>
+<h3>El único protocolo que trabaja la causa real: el movimiento correcto</h3>
+<p><strong>15 minutos al día.</strong> Notás los primeros cambios en la primera semana, y en 28 días tu cuerpo aprende un patrón nuevo — de por vida. No es otra rutina genérica de estiramientos: es un protocolo personalizado a tu perfil, con seguimiento día a día desde el celular. Incluye la Guía en PDF de regalo.</p>
 
 <div class="cta-precio-wrap" id="cta-precio-wrap">
-<div class="cta-precio-antes">Antes $24.99 USD</div>
-<div class="cta-precio-ahora"><span>$</span>19.99 <span>USD</span></div>
+<div class="cta-precio-ahora"><span>$</span>21.99 <span>USD</span></div>
 </div>
-<a href="https://hotm.io/app10off" class="btn-comprar" id="btn-comprar" target="_blank" rel="noopener">Quiero la App con 20% OFF →</a>
+<a href="https://pay.hotmart.com/H106254242M" class="btn-comprar" id="btn-comprar" target="_blank" rel="noopener">Quiero la App + Guía PDF de regalo →</a>
 </div>
 
-<!-- COMBO: misma oferta, resaltado como la opción más completa -->
+<!-- COMBO: las dos apps (Cuello&Espalda + Rodilla&Cadera), resaltado como la opción más completa -->
 <div class="cta-card combo-card">
 <div class="combo-badge">⭐ La opción más completa</div>
-<h3>App + Guía en PDF: tu protocolo completo, dentro y fuera del celular</h3>
-<p>La App con tus 15 minutos diarios guiados + la Guía en PDF con toda la ciencia detrás de por qué funciona — para repasar cuando quieras, con o sin internet.</p>
+<h3>Pack Completo: las 2 apps — Cuello & Espalda + Rodilla & Cadera</h3>
+<p>Las dos apps con sus 15 minutos diarios guiados, cada una con su Guía en PDF incluida de regalo — para cubrir las dos zonas, dentro y fuera del celular, con o sin internet.</p>
 
 <div class="cta-precio-wrap" id="combo-precio-wrap">
-<div class="cta-precio-antes">Antes $32.99 USD</div>
-<div class="cta-precio-ahora"><span>$</span>26.99 <span>USD</span></div>
+<div class="cta-precio-ahora"><span>$</span>29.99 <span>USD</span></div>
 </div>
-<a href="https://hotm.io/combo20off" class="btn-comprar" id="btn-combo" target="_blank" rel="noopener">Quiero el Combo con 20% OFF →</a>
+<a href="https://pay.hotmart.com/H106254242M?off=12j5q195&checkoutMode=10" class="btn-comprar" id="btn-combo" target="_blank" rel="noopener">Quiero el Pack Completo →</a>
 </div>
 
 <!-- LO QUE REALMENTE ESTÁS COMPRANDO: 28 días vs. de por vida -->
 <div class="acceso-vida-card">
 <div class="acceso-vida-badge">⭐ Acceso de por vida</div>
-<p><strong>Importante:</strong> los 28 días son el tiempo que tu sistema nervioso necesita para reeducarse y aprender a moverse sin dolor — no es el tiempo que vas a poder usar la App. El acceso a la App <strong>no vence nunca</strong>: la tenés de por vida, para sostener el cambio, volver cuando la necesites y <strong>realmente transformar tu calidad de vida</strong> a largo plazo.</p>
+<p><strong>Importante:</strong> los 28 días son el tiempo que tu cuerpo necesita para aprender a moverse sin dolor — no es el tiempo que vas a poder usar la App. El acceso a la App <strong>no vence nunca</strong>: la tenés de por vida, para sostener el cambio, volver cuando la necesites y <strong>realmente transformar tu calidad de vida</strong> a largo plazo.</p>
 <div class="acceso-vida-split">
-<div class="mitad"><span class="num">28 días</span><span class="label">para reeducar tu sistema nervioso</span></div>
+<div class="mitad"><span class="num">28 días</span><span class="label">para que tu cuerpo aprenda a moverse sin dolor</span></div>
 <div class="signo">+</div>
 <div class="mitad"><span class="num">De por vida</span><span class="label">acceso a la App, para usarla siempre</span></div>
 </div>
@@ -1029,15 +1106,15 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 
 <div class="garantia">🛡️ Si en 7 días no ves mejoras, te devolvemos el dinero.</div>
 
-<!-- CIERRE: puente final a WhatsApp -->
+<!-- CIERRE: ir a landing -->
 <div class="whatsapp-card">
-<h3>🧠 Ahora que conocés tu mapa...</h3>
-<p>El siguiente paso es saber cómo reentrenar tu sistema nervioso para que el dolor no vuelva. Escribime a WhatsApp y te digo por dónde empezar.</p>
-<a href="#" id="wa-link" class="btn-whatsapp" target="_blank" rel="noopener">Escribirle a Majo →</a>
+<h3>¿Tenés alguna duda antes de empezar?</h3>
+<p>Si querés hablar con alguien antes de comenzar tu protocolo, estamos disponibles por WhatsApp.</p>
+<a href="https://wa.me/5492494205535?text=Hola%2C%20hice%20la%20evaluaci%C3%B3n%20del%20quiz%20y%20quiero%20saber%20m%C3%A1s%20sobre%20el%20protocolo." id="wa-link" class="btn-whatsapp" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
 </div>
 
 <div class="cta-footnote">
-¿Preferís empezar solo con la Guía en PDF? <a href="https://go.hotmart.com/Q106071569H" id="btn-pdf" target="_blank" rel="noopener">Comprala acá por $14.99 →</a>
+¿Preferís empezar solo con la Guía en PDF? <a href="https://pay.hotmart.com/Q106071569H" id="btn-pdf" target="_blank" rel="noopener">Comprala acá por $9.99 →</a>
 </div>
 
 </div>
@@ -1051,46 +1128,18 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 <div class="evidencia-caption">Recuperar movilidad no es solo "no dolor" — es volver a caminar, viajar y disfrutar el tiempo con los tuyos <strong>sin miedo a moverte</strong>.</div>
 </div>
 
-<div class="educacion-card warning">
-<h3>⚠️ Lo que NO sabías sobre el dolor de rodilla y cadera</h3>
-<div class="stat-highlight"><span class="stat-num">22,9%</span><span class="stat-label">de las personas mayores de 40 años tiene algún grado de artrosis de rodilla, una de las principales causas de pérdida de movilidad al caminar y subir escaleras.</span></div>
-<p style="margin-bottom: 14px; font-weight: 600;">Los números son claros: ignorar el dolor ahora puede limitar tu independencia más adelante.</p>
-<ul>
-<li><strong>Cerca de 1 de cada 10 adultos mayores de 60 años</strong> tiene síntomas de artrosis, según estimaciones de la Organización Mundial de la Salud.</li>
-<li><strong>El dolor sin tratar</strong> hace que evites cada vez más movimiento — y ese desuso debilita aún más los músculos que protegen la articulación.</li>
-<li><strong>Sin un protocolo estructurado,</strong> el dolor progresa: ocasional → frecuente → limita actividades → miedo a moverte → menos fuerza → más dolor.</li>
-<li><strong>Tu sistema nervioso está aprendiendo AHORA mismo</strong> que ciertos movimientos son peligrosos. Cuanto más los evitás, más se lo confirmás a tu cerebro.</li>
-</ul>
-</div>
-
-<div class="educacion-card neurociencia">
-<h3>🧠 Por qué el miedo a moverte empeora el dolor (no es paranoia, es ciencia)</h3>
-<p>Cuando te duele la rodilla o la cadera, lo más natural es evitar el movimiento que te duele. Tiene sentido — pero ese mismo instinto, sostenido en el tiempo, es lo que perpetúa el problema.<br><br>
-<strong>El ciclo actual:</strong><br>
-• Cada vez que evitás moverte → los músculos que sostienen la articulación se debilitan más.<br>
-• Cada vez que el músculo es más débil → la articulación absorbe más impacto del que debería.<br>
-• Cada vez que duele más → evitás todavía más movimiento.<br><br>
-<strong>El resultado:</strong> un círculo donde el miedo y el desuso alimentan el dolor, en vez de protegerte de él.<br><br>
-<strong>La buena noticia (y es REAL):</strong> con el movimiento correcto, progresivo y guiado, ese ciclo se revierte. Los músculos que protegen tu rodilla y cadera pueden recuperar fuerza y estabilidad a cualquier edad.<br><br>
-<strong>El plazo:</strong> 14 días de reeducación consistente alcanzan para notar más estabilidad y menos dolor al caminar o subir escaleras. <strong>El acceso a la App, en cambio, es de por vida:</strong> una vez recuperado el patrón, la usás para mantenerlo o ajustarlo cuando quieras, sin límite de tiempo.
-</p>
-</div>
-
 <!-- EVIDENCIA VISUAL: Carlos haciendo el ejercicio guiado -->
 <div class="evidencia-card">
 <img src="assets/ventas_rodilla/carlos_sentadilla.png" alt="Carlos haciendo un ejercicio guiado de sentadilla con apoyo, siguiendo el protocolo paso a paso" loading="lazy">
 <div class="evidencia-caption">Ejercicios <strong>seguros y progresivos</strong>, con apoyo cuando lo necesitás — pensados para sumar fuerza sin forzar la articulación.</div>
 </div>
 
-<div class="educacion-card timeline">
-<h3>⏰ Esto es lo que pasa si esperás (timeline real)</h3>
-<ul>
-<li><strong>Hoy:</strong> Dolor ocasional al subir escaleras o levantarte. Crees que "es la edad" o que "ya va a pasar".</li>
-<li><strong>3-6 meses evitando moverte:</strong> Empezás a evitar actividades (caminar largo, agacharte, jugar con los nietos). Menos fuerza, más rigidez.</li>
-<li><strong>1-2 años sin cambio:</strong> Dolor más constante. Dependés de rodilleras, plantillas o analgésicos para funcionar en el día a día.</li>
-<li><strong>2+ años así:</strong> Pérdida significativa de movilidad e independencia. Ese punto es más difícil (no imposible, pero más difícil) de revertir.</li>
-<li><strong>La línea de corte es AHORA.</strong> Cuanto antes recuperes fuerza y movilidad, más fácil es mantenerlas. La diferencia entre actuar hoy vs. en 6 meses es ENORME.</li>
-</ul>
+<!-- MECANISMO: por qué persiste el dolor y por qué el protocolo lo revierte (un solo mensaje, no tres) -->
+<div class="educacion-card neurociencia">
+<h3>🧠 Por qué el miedo a moverte empeora el dolor de rodilla y cadera</h3>
+<div class="stat-highlight"><span class="stat-num">22,9%</span><span class="stat-label">de las personas mayores de 40 años tiene algún grado de artrosis de rodilla.</span></div>
+<p>Cuando duele la rodilla o la cadera, lo natural es evitar el movimiento que duele. Tiene sentido — pero sostenido en el tiempo, es justo lo que perpetúa el problema: el músculo que sostiene la articulación se debilita, la articulación absorbe más impacto del que debería, y duele más.<br><br>
+<strong>La buena noticia (y es real):</strong> con el movimiento correcto, progresivo y guiado, ese ciclo se revierte a cualquier edad. Los músculos que protegen tu rodilla y cadera pueden recuperar fuerza y estabilidad, sin forzar la articulación.</p>
 </div>
 
 <!-- TESTIMONIOS REALES -->
@@ -1099,26 +1148,14 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 
 <div class="testimonio">
 <div class="testimonio-stars">★★★★★</div>
-<p>Llevaba meses evitando salir a caminar por miedo a ese pinchazo en la cadera. Esta guía no solo me dio ejercicios, sino que me enseñó por qué me dolía. Entender la neurociencia detrás del dolor cambió mi forma de moverme. ¡Ya estoy haciendo senderismo de nuevo sin miedo!</p>
+<p>Llevaba meses evitando salir a caminar por miedo a ese pinchazo en la cadera. Este protocolo no solo me dio ejercicios, sino que me enseñó por qué me dolía y cómo trabajarlo. ¡Ya estoy haciendo senderismo de nuevo sin miedo!</p>
 <div class="testimonio-autor">— Julián R., 48 años</div>
-</div>
-
-<div class="testimonio">
-<div class="testimonio-stars">★★★★★</div>
-<p>Al principio pensaba que una app no podía reemplazar la atención personalizada, pero me sorprendió la claridad de los videos y el seguimiento diario. Es como tener a un profesional explicándote los ejercicios en casa, paso a paso y sin complicaciones.</p>
-<div class="testimonio-autor">— Elena M., 55 años</div>
 </div>
 
 <div class="testimonio">
 <div class="testimonio-stars">★★★★★</div>
 <p>Mis rodillas se sentían "oxidadas" después de estar mucho tiempo sentada trabajando. El programa de 14 días fue el empujón que necesitaba para retomar hábitos saludables. Los "datos del día" me ayudaron a romper mitos que yo misma creía ciertos sobre el desgaste.</p>
 <div class="testimonio-autor">— Sofía T., 39 años</div>
-</div>
-
-<div class="testimonio">
-<div class="testimonio-stars">★★★★★</div>
-<p>Después de probar mil cosas, lo que más valoro de esta propuesta es el enfoque basado en evidencia. El registro diario de progreso me mantuvo motivado y enfocado en mis objetivos.</p>
-<div class="testimonio-autor">— Matías G., 42 años</div>
 </div>
 
 <div class="testimonio">
@@ -1142,7 +1179,7 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 <div class="cta-card">
 <div class="cta-eyebrow">Tu próximo paso</div>
 <h3>El único protocolo que trabaja la causa real: fuerza y movilidad, no solo el síntoma</h3>
-<p><strong>15 minutos al día.</strong> Notás los primeros cambios en la primera semana, y en 14 días tu cuerpo recupera un patrón de movimiento más seguro — de por vida. No es otra rutina genérica: es reeducación neuromuscular personalizada a tu perfil, con seguimiento día a día desde el celular.</p>
+<p><strong>15 minutos al día.</strong> Notás los primeros cambios en la primera semana, y en 14 días tu cuerpo recupera un patrón de movimiento más seguro — de por vida. No es otra rutina genérica: es un protocolo personalizado a tu perfil, con seguimiento día a día desde el celular.</p>
 
 <div class="cta-precio-wrap">
 <div class="cta-precio-ahora"><span>$</span>17.99 <span>USD</span></div>
@@ -1161,15 +1198,101 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 </div>
 </div>
 
-<!-- CIERRE: puente final a WhatsApp -->
+<!-- CIERRE: ir a landing -->
 <div class="whatsapp-card">
-<h3>🦵 Ahora que conocés tu mapa...</h3>
-<p>El siguiente paso es saber cómo recuperar fuerza y movilidad para que el dolor no vuelva. Escribime a WhatsApp y te digo por dónde empezar.</p>
-<a href="#" id="wa-link-r" class="btn-whatsapp" target="_blank" rel="noopener">Escribirle a Majo →</a>
+<h3>¿Tenés alguna duda antes de empezar?</h3>
+<p>Si querés hablar con alguien antes de comenzar tu protocolo, estamos disponibles por WhatsApp.</p>
+<a href="https://wa.me/5492494205535?text=Hola%2C%20hice%20la%20evaluaci%C3%B3n%20del%20quiz%20y%20quiero%20saber%20m%C3%A1s%20sobre%20el%20protocolo." id="wa-link-r" class="btn-whatsapp" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
 </div>
 
 <div class="cta-footnote">
 ¿Preferís empezar solo con la Guía en PDF? <a href="https://pay.hotmart.com/G106487989R" id="btn-pdf-r" target="_blank" rel="noopener">Comprala acá por $9.99 →</a>
+</div>
+
+</div>
+
+<!-- MARKETING — AMBOS (versión condensada: sin repetir todo el contenido de los dos tracks) -->
+<div id="marketing-ambos" style="display:none;">
+
+<div class="evidencia-card">
+<img src="assets/ventas_rodilla/matrimonio_estirando.png" alt="Pareja mayor estirando al aire libre, sin miedo a moverse" loading="lazy">
+<div class="evidencia-caption">Recuperar movilidad en las dos zonas no es solo "no dolor" — es volver a moverte con confianza, sin pensarlo dos veces. <strong>Cuando el cuerpo compensa entre zonas, tratarlas juntas es lo que realmente funciona.</strong></div>
+</div>
+
+<!-- MECANISMO: un solo mensaje que explica por qué las dos zonas juntas cambian el resultado -->
+<div class="educacion-card neurociencia">
+<h3>🧠 Por qué tratar las dos zonas juntas cambia el resultado</h3>
+<div class="stat-highlight"><span class="stat-num">Top 6</span><span class="stat-label">El dolor cervical está entre las 6 primeras causas de discapacidad en el mundo.</span></div>
+<div class="stat-highlight"><span class="stat-num">22,9%</span><span class="stat-label">de los mayores de 40 años tiene algún grado de artrosis de rodilla.</span></div>
+<p>Cuando el cuerpo acumula tensión en dos zonas a la vez, no son dos problemas separados: son compensaciones que viajan de una a la otra. Lo que empieza en la espalda le exige de más a la rodilla, y viceversa — por eso tratar una sola casi nunca alcanza.<br><br>
+<strong>La buena noticia:</strong> con el movimiento correcto, progresivo y guiado en cada zona, ese ciclo se corta desde los dos frentes al mismo tiempo — 15 minutos por día, en días alternos.</p>
+</div>
+
+<!-- TESTIMONIOS: uno por zona + uno transversal, en vez de repetir los 10 -->
+<div class="testimonios-card">
+<div class="testimonios-eyebrow">Esto dicen quienes ya lo probaron</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Por fin entendí por qué me dolía, y eso ya fue un cambio enorme. Ahora termino 9 horas frente al monitor sin ese nudo insoportable entre los omóplatos.</p>
+<div class="testimonio-autor">— Carlos, Abogado · 9 hs/día frente a la pantalla</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Llevaba meses evitando salir a caminar por miedo a ese pinchazo en la cadera. Este protocolo me enseñó por qué me dolía y cómo trabajarlo. ¡Ya estoy haciendo senderismo de nuevo sin miedo!</p>
+<div class="testimonio-autor">— Julián R., 48 años</div>
+</div>
+
+<div class="testimonio">
+<div class="testimonio-stars">★★★★★</div>
+<p>Tengo 69 años y pensé que ya era tarde para mejorar mis dolores. La guía me ayudó a perder el miedo a moverme: hoy puedo caminar más, dormir mejor y hasta jugar con mis nietos sin quedar dolorida al otro día.</p>
+<div class="testimonio-autor">— Susana, Jubilada · 69 años</div>
+</div>
+
+<div class="testimonios-nota">Testimonios reales de usuarios. Los resultados pueden variar según cada caso.</div>
+</div>
+
+<!-- VIDEO: se elige el de la zona prioritaria vía JS -->
+<div class="app-video-card">
+<div class="video-eyebrow">Mirá por dentro</div>
+<h3>Esto es lo que vas a tener en tu celular</h3>
+<video id="video-ambos" src="video app, mapa de dolor.mp4" poster="video-app-poster.jpg" controls playsinline preload="metadata"></video>
+<p>Sin nada difícil ni complicado: rutinas guiadas paso a paso para cada zona, seguimiento de tu progreso día a día y ejercicios pensados para tu perfil.</p>
+</div>
+
+<!-- CTA: una sola recomendación clara, sin dispersar en varias opciones -->
+<div class="cta-card combo-card">
+<div class="combo-badge">⭐ Tu combinación recomendada</div>
+<h3>Pack Completo: las 2 apps — Cuello & Espalda + Rodilla & Cadera</h3>
+<p>Las dos apps con sus 15 minutos diarios guiados, cada una con su Guía en PDF incluida de regalo — para trabajar las dos zonas en paralelo, dentro y fuera del celular.</p>
+
+<div class="cta-precio-wrap">
+<div class="cta-precio-ahora"><span>$</span>29.99 <span>USD</span></div>
+</div>
+<a href="https://pay.hotmart.com/H106254242M?off=12j5q195&checkoutMode=10" class="btn-comprar" id="btn-combo-ambos" target="_blank" rel="noopener">Quiero el Pack Completo →</a>
+</div>
+
+<div class="acceso-vida-card">
+<div class="acceso-vida-badge">⭐ Acceso de por vida</div>
+<p><strong>Importante:</strong> el tiempo del protocolo (28 días para Cuello & Espalda, 14 para Rodilla & Cadera) es lo que tu cuerpo necesita para aprender el patrón nuevo — no es el tiempo que vas a poder usar las Apps. El acceso a las dos Apps <strong>no vence nunca</strong>: las tenés de por vida, para sostener el cambio y volver cuando las necesites.</p>
+<div class="acceso-vida-split">
+<div class="mitad"><span class="num">28 + 14 días</span><span class="label">para que tu cuerpo aprenda a moverse sin dolor en las dos zonas</span></div>
+<div class="signo">+</div>
+<div class="mitad"><span class="num">De por vida</span><span class="label">acceso a las dos Apps, para usarlas siempre</span></div>
+</div>
+</div>
+
+<div class="garantia">🛡️ Si en 7 días no ves mejoras, te devolvemos el dinero.</div>
+
+<div class="whatsapp-card">
+<h3>¿Tenés alguna duda antes de empezar?</h3>
+<p>Si querés hablar con alguien antes de comenzar tu protocolo, estamos disponibles por WhatsApp.</p>
+<a href="https://wa.me/5492494205535?text=Hola%2C%20hice%20la%20evaluaci%C3%B3n%20del%20quiz%20y%20quiero%20saber%20m%C3%A1s%20sobre%20el%20Pack%20Completo." id="wa-link-ambos" class="btn-whatsapp" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+</div>
+
+<div class="cta-footnote">
+¿Preferís empezar solo con las Guías en PDF? <a href="https://pay.hotmart.com/Q106071569H" id="btn-pdf-ambos-e" target="_blank" rel="noopener">Cuello & Espalda $9.99 →</a> · <a href="https://pay.hotmart.com/G106487989R" id="btn-pdf-ambos-r" target="_blank" rel="noopener">Rodilla & Cadera $9.99 →</a>
 </div>
 
 </div>
@@ -1179,8 +1302,8 @@ Por eso el protocolo de la App dura 28 días — es lo que tu sistema nervioso n
 </div>
 
 <div class="quiz-footer">
-<strong>DolorConCiencia</strong> · <a href="https://dolorconciencia.lat">dolorconciencia.lat</a><br>
-Este contenido es educativo y no reemplaza la consulta médica profesional.
+<strong>DolorConCiencia</strong> · <a href="https://dolorconciencia-landing.vercel.app">dolorconciencia.lat</a><br>
+Este programa es una guía de bienestar para mejorar la calidad de vida y no sustituye consultas o tratamientos médicos profesionales.
 </div>
 
 <script>
@@ -1298,8 +1421,11 @@ zonaCard.querySelectorAll('.opcion-btn').forEach(btn => {
 btn.addEventListener('click', () => {
 zonaCard.querySelectorAll('.opcion-btn').forEach(b => b.classList.remove('selected'));
 btn.classList.add('selected');
-zona = (btn.dataset.value === 'A') ? 'espalda' : 'rodilla';
+zona = (btn.dataset.value === 'A') ? 'espalda' : (btn.dataset.value === 'B') ? 'rodilla' : 'ambos';
 zonaCard.querySelector('.btn-siguiente').classList.add('enabled');
+// Si elige Ambos, cambiar texto del botón
+const btnSig0 = zonaCard.querySelector('.btn-siguiente');
+btnSig0.textContent = (zona === 'ambos') ? 'Ver mi recomendación →' : 'Comenzar →';
 });
 });
 zonaCard.querySelector('.btn-siguiente').addEventListener('click', () => {
@@ -1370,6 +1496,72 @@ pctEl.textContent = pct + '% completado';
 }
 
 function mostrarResultado() {
+
+if (zona === 'ambos') {
+  // Determinar zona prioritaria según Q1 y el peso de A vs B en todas las respuestas
+  const q1 = respuestas['1'];
+  const conteoAB = { A: 0, B: 0 };
+  Object.values(respuestas).forEach(v => { if (v === 'A') conteoAB.A++; else if (v === 'B') conteoAB.B++; });
+  const prioridad = (q1 === 'B' || (q1 === 'C' && conteoAB.B > conteoAB.A)) ? 'rodilla' : 'espalda';
+  const esCronico = respuestas['7'] === 'C';
+
+  document.getElementById('res-emoji').textContent = '🌟';
+  const tag = document.getElementById('res-tag');
+  tag.textContent = 'PACK COMPLETO';
+  tag.style.background = '#1a4a2e';
+  tag.style.color = '#F5E6A0';
+  tag.style.fontWeight = '800';
+  tag.style.padding = '6px 18px';
+  tag.style.borderRadius = '20px';
+  tag.style.fontSize = '11px';
+  tag.style.letterSpacing = '1.5px';
+  tag.style.textTransform = 'uppercase';
+  document.getElementById('res-nombre').textContent = 'Tenés las dos zonas afectadas — y un protocolo para cada una.';
+  document.getElementById('res-subtitulo').textContent = prioridad === 'rodilla'
+    ? 'Tu cuerpo necesita atender primero la rodilla/cadera — y después sostener la espalda.'
+    : 'Tu cuerpo necesita atender primero la espalda/cuello — y después sostener la rodilla.';
+  document.getElementById('res-desc').textContent = 'Cuando el cuerpo acumula tensión en varias zonas a la vez, trabajar una sola no alcanza — las compensaciones viajan de una zona a la otra. Los dos protocolos están pensados para funcionar juntos: en días alternos, 15 minutos cada uno. El resultado es un cuerpo que aprende a moverse mejor desde todos los ángulos.';
+  document.getElementById('res-inicio').textContent = prioridad === 'rodilla'
+    ? 'Empezás por el Protocolo Rodilla & Cadera (la zona más urgente) y lo alternás con Cuello & Espalda. Los dos PDFs guía van incluidos. Acceso de por vida a las dos apps, sin suscripción.'
+    : 'Empezás por el Protocolo Cuello & Espalda (la zona más urgente) y lo alternás con Rodilla & Cadera. Los dos PDFs guía van incluidos. Acceso de por vida a las dos apps, sin suscripción.';
+  document.getElementById('res-urgencia').innerHTML = esCronico
+    ? 'Llevás años con dolor en las dos zonas — eso significa que el cuerpo ya aprendió patrones que refuerzan el malestar. Cuanto más tiempo pasa, más arraigados quedan esos patrones. El mejor momento para interrumpirlos era antes; el segundo mejor momento es ahora.'
+    : 'Todavía estás a tiempo de cortar el ciclo antes de que se vuelva crónico. Atender las dos zonas juntas ahora es mucho más eficiente que esperar a que una empeore sola.';
+  const causasList = document.getElementById('res-causas');
+  causasList.innerHTML = '';
+  ['Protocolo Cuello & Espalda incluido', 'Protocolo Rodilla & Cadera incluido', 'PDF guía de cada protocolo', 'Acceso de por vida a los dos', 'Sin suscripción ni renovaciones'].forEach(c => {
+    const li = document.createElement('li');
+    li.textContent = c;
+    causasList.appendChild(li);
+  });
+  // CTA superior → combo
+  const ctaTopLink = document.getElementById('cta-top-link');
+  const ctaTopTitulo = document.getElementById('cta-top-titulo');
+  const ctaTopDesc = document.getElementById('cta-top-desc');
+  // Mostrar solo el bloque condensado de "ambos" (evita repetir los dos tracks completos)
+  document.getElementById('marketing-espalda').style.display = 'none';
+  document.getElementById('marketing-rodilla').style.display = 'none';
+  document.getElementById('marketing-ambos').style.display = 'block';
+  // El video muestra la zona prioritaria
+  const videoAmbos = document.getElementById('video-ambos');
+  if (videoAmbos) {
+    if (prioridad === 'rodilla') {
+      videoAmbos.src = 'assets/ventas_rodilla/demo_app.mp4';
+      videoAmbos.poster = 'assets/ventas_rodilla/video_poster.jpg';
+    } else {
+      videoAmbos.src = 'video app, mapa de dolor.mp4';
+      videoAmbos.poster = 'video-app-poster.jpg';
+    }
+  }
+  // Pixel
+  if (typeof fbq === 'function') { fbq('track', 'Lead', {content_name: 'Pack Completo', content_category: 'ambos'}); }
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('progress-fill').style.width = '100%';
+  window.scrollTo(0, 0);
+  return;
+}
+
 const perfiles = (zona === 'rodilla') ? perfilesRodilla : perfilesEspalda;
 
 // Contar respuestas
@@ -1407,12 +1599,11 @@ causasList.appendChild(li);
 // Mostrar el bloque de marketing correspondiente a la zona elegida
 document.getElementById('marketing-espalda').style.display = (zona === 'rodilla') ? 'none' : 'block';
 document.getElementById('marketing-rodilla').style.display = (zona === 'rodilla') ? 'block' : 'none';
+document.getElementById('marketing-ambos').style.display = 'none';
 
-// Armar link de WhatsApp con el perfil ya cargado
-const waMsg = 'Hola Majo! Hice el Mapa del Dolor y mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero que analices mi resultado y me digas qué me conviene 🙂';
+// Armar link de WhatsApp con el perfil
+const waMsg = 'Hola! Hice la evaluación de DolorConCiencia. Mi perfil es: ' + p.tag + ' (' + p.nombre + '). Quiero saber más sobre el protocolo 🙂';
 const waHref = 'https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(waMsg);
-const waLinkTop = document.getElementById('wa-link-top');
-if (waLinkTop) waLinkTop.href = waHref;
 const waLinkEspalda = document.getElementById('wa-link');
 if (waLinkEspalda) waLinkEspalda.href = waHref;
 const waLinkRodilla = document.getElementById('wa-link-r');
@@ -1431,67 +1622,10 @@ document.getElementById('prog-label').innerHTML = 'Pregunta <strong>' + totalPre
 document.getElementById('prog-pct').textContent = '100% completado';
 window.scrollTo(0, 0);
 
-if (zona !== 'rodilla') {
-iniciarCountdown();
-}
-}
-
-// Oferta -20% por 24hs (App + Combo, solo track Espalda/Cuello): el plazo arranca la primera vez que ESTE lead
-// ve su resultado (queda guardado en su navegador; no se reinicia en cada visita ni para otro visitante).
-function iniciarCountdown() {
-const STORAGE_KEY = 'dcc_oferta_deadline';
-const APP_HREF_NORMAL = 'https://pay.hotmart.com/H106254242M';
-const APP_HREF_OFERTA = 'https://hotm.io/app10off';
-const COMBO_HREF = 'https://hotm.io/combo20off';
-
-let deadline = parseInt(localStorage.getItem(STORAGE_KEY), 10);
-if (!deadline || isNaN(deadline)) {
-deadline = Date.now() + 24 * 60 * 60 * 1000;
-localStorage.setItem(STORAGE_KEY, String(deadline));
-}
-
-const ofertaHeader = document.getElementById('oferta-header');
-const countdownEl = document.getElementById('countdown');
-const appPrecioWrap = document.getElementById('cta-precio-wrap');
-const appBtn = document.getElementById('btn-comprar');
-const comboPrecioWrap = document.getElementById('combo-precio-wrap');
-const comboBtn = document.getElementById('btn-combo');
-
-function expirarOferta() {
-if (ofertaHeader) ofertaHeader.style.display = 'none';
-if (appPrecioWrap) appPrecioWrap.innerHTML = '<div class="cta-precio-ahora"><span>$</span>24.99 <span>USD</span></div>';
-if (appBtn) {
-appBtn.href = APP_HREF_NORMAL;
-appBtn.textContent = 'Quiero la App ahora →';
-}
-if (comboPrecioWrap) comboPrecioWrap.innerHTML = '<div class="cta-precio-ahora"><span>$</span>32.99 <span>USD</span></div>';
-if (comboBtn) comboBtn.textContent = 'Quiero el Combo →';
-}
-
-function tick() {
-const restante = deadline - Date.now();
-if (restante <= 0) {
-expirarOferta();
-clearInterval(timer);
-return;
-}
-const h = Math.floor(restante / 3600000);
-const m = Math.floor((restante % 3600000) / 60000);
-const s = Math.floor((restante % 60000) / 1000);
-if (countdownEl) {
-countdownEl.textContent = String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
-}
-}
-
-if (appBtn) appBtn.href = APP_HREF_OFERTA;
-if (comboBtn) comboBtn.href = COMBO_HREF;
-let timer;
-tick();
-timer = setInterval(tick, 1000);
 }
 
 // Pixel: trackear clics en los botones de compra y de WhatsApp
-['btn-comprar', 'btn-combo', 'btn-pdf', 'btn-comprar-r', 'btn-pdf-r'].forEach(function(id) {
+['btn-comprar', 'btn-combo', 'btn-pdf', 'btn-comprar-r', 'btn-pdf-r', 'btn-combo-ambos', 'btn-pdf-ambos-e', 'btn-pdf-ambos-r'].forEach(function(id) {
 	const el = document.getElementById(id);
 	if (el) {
 		el.addEventListener('click', function() {
@@ -1499,7 +1633,7 @@ timer = setInterval(tick, 1000);
 		});
 	}
 });
-['wa-link', 'wa-link-top', 'wa-link-r'].forEach(function(id) {
+['wa-link', 'wa-link-top', 'wa-link-r', 'wa-link-ambos'].forEach(function(id) {
 	const el = document.getElementById(id);
 	if (el) {
 		el.addEventListener('click', function() {
